@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "assets": [
+    {
+      "id": "ast_demo_gateway",
+      "name": "AegisGate API Gateway",
+      "kind": "api",
+      "address": "gateway.example.internal",
+      "environment": "production",
+      "importance": "core",
+      "status": "online",
+      "owner": "AI Security",
+      "department": "Security Platform",
+      "authorization_scope": "Demo inventory only",
+      "created_at": "2026-08-30T02:00:00Z",
+      "updated_at": "2026-08-30T02:00:00Z"
+    },
+    {
+      "id": "ast_demo_model",
+      "name": "Local ONNX Classifier",
+      "kind": "model",
+      "address": "local://official-four-rbt3-v2",
+      "environment": "production",
+      "importance": "high",
+      "status": "online",
+      "owner": "Model Security",
+      "department": "AI Security",
+      "authorization_scope": "Local model asset",
+      "created_at": "2026-08-30T02:10:00Z",
+      "updated_at": "2026-08-30T02:10:00Z"
+    },
+    {
+      "id": "ast_demo_review",
+      "name": "Review Workstation",
+      "kind": "web",
+      "address": "review.example.internal",
+      "environment": "staging",
+      "importance": "normal",
+      "status": "offline",
+      "owner": "SOC Team",
+      "department": "Security Operations",
+      "authorization_scope": "Demo inventory only",
+      "created_at": "2026-08-30T02:20:00Z",
+      "updated_at": "2026-08-30T02:20:00Z"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alt_demo_prompt",
+      "title": "Repeated prompt-injection pattern",
+      "source": "AegisGate Gateway",
+      "severity": "high",
+      "status": "investigating",
+      "attack_type": "Prompt Injection",
+      "asset_id": "ast_demo_gateway",
+      "source_indicator": "198.51.100.24",
+      "repeat_count": 18,
+      "evidence_sha256": "fcfa7d3db545844380e469865214fe821409f0808e0f2c0ff884540886060e32",
+      "raw_evidence_persisted": false,
+      "created_at": "2026-08-30T07:12:00Z",
+      "updated_at": "2026-08-30T07:21:00Z"
+    },
+    {
+      "id": "alt_demo_dlp",
+      "title": "Sensitive identifier blocked at model output",
+      "source": "AegisGate DLP",
+      "severity": "critical",
+      "status": "open",
+      "attack_type": "Data Exfiltration",
+      "asset_id": "ast_demo_model",
+      "source_indicator": "model-output",
+      "repeat_count": 3,
+      "evidence_sha256": "f40b10ef405c5e3cddc90c98bc2079476ea8408648b941824204348199cb7a6d",
+      "raw_evidence_persisted": false,
+      "created_at": "2026-08-30T08:04:00Z",
+      "updated_at": "2026-08-30T08:04:00Z"
+    },
+    {
+      "id": "alt_demo_waf",
+      "title": "WAF SQL injection signature observed",
+      "source": "Demo WAF Connector",
+      "severity": "medium",
+      "status": "false_positive",
+      "attack_type": "SQL Injection",
+      "asset_id": "ast_demo_review",
+      "source_indicator": "203.0.113.19",
+      "repeat_count": 7,
+      "evidence_sha256": "471d0f78152813b8f4ff69f2647cd82dd6b876c754f9fda301c23e3820da3361",
+      "raw_evidence_persisted": false,
+      "created_at": "2026-08-30T04:10:00Z",
+      "updated_at": "2026-08-30T06:30:00Z"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "vul_demo_headers",
+      "title": "Connector security header baseline incomplete",
+      "cve": "",
+      "cvss": 5.3,
+      "severity": "medium",
+      "status": "fixing",
+      "asset_id": "ast_demo_review",
+      "owner": "Platform Team",
+      "deadline": "2026-09-05",
+      "remediation": "Apply the gateway security header baseline and verify with an integration test.",
+      "verification": "not_tested",
+      "created_at": "2026-08-29T09:00:00Z",
+      "updated_at": "2026-08-30T09:00:00Z"
+    },
+    {
+      "id": "vul_demo_dependency",
+      "title": "Review dependency update and compatibility evidence",
+      "cve": "CVE-2026-10001",
+      "cvss": 8.1,
+      "severity": "high",
+      "status": "retesting",
+      "asset_id": "ast_demo_gateway",
+      "owner": "Supply Chain Security",
+      "deadline": "2026-09-02",
+      "remediation": "Upgrade the affected component, regenerate SBOM, and rerun regression tests.",
+      "verification": "scheduled",
+      "created_at": "2026-08-29T10:00:00Z",
+      "updated_at": "2026-08-30T10:00:00Z"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "inc_demo_output",
+      "title": "Potential model-output data disclosure",
+      "category": "Data Leakage",
+      "severity": "high",
+      "stage": "contained",
+      "owner": "SOC Team",
+      "impact_scope": "Demo model endpoint; no production user content",
+      "evidence_digest": "b1b4764b056b109ad5cf9f01b3d85d76267fefdd665b98930eb9e1bf91b1bce3",
+      "created_at": "2026-08-30T08:10:00Z",
+      "updated_at": "2026-08-30T08:35:00Z"
+    }
+  ],
+  "iocs": [
+    {
+      "id": "ioc_demo_ip",
+      "type": "ip",
+      "value": "198.51.100.24",
+      "source": "Demo threat feed",
+      "confidence": 76,
+      "status": "active",
+      "tags": ["prompt-injection", "demo"],
+      "created_at": "2026-08-30T07:30:00Z",
+      "updated_at": "2026-08-30T07:30:00Z"
+    },
+    {
+      "id": "ioc_demo_domain",
+      "type": "domain",
+      "value": "malicious.example",
+      "source": "Demo threat feed",
+      "confidence": 61,
+      "status": "active",
+      "tags": ["phishing", "demo"],
+      "created_at": "2026-08-30T07:40:00Z",
+      "updated_at": "2026-08-30T07:40:00Z"
+    }
+  ],
+  "events": []
+}

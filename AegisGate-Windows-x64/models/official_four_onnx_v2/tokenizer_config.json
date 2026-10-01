@@ -1,0 +1,5 @@
+{
+  "type": "bert_wordpiece",
+  "do_lower_case": true,
+  "max_length": 96
+}

@@ -1,0 +1,160 @@
+{
+  "created_at_utc": "2026-08-17T17:06:06.432082+00:00",
+  "dataset_id": "aegisgate-official-four-v2",
+  "dataset_version": "2.0.0",
+  "dataset_manifest_sha256": "8dcf591bf5e00abf1f3ea66c01570904778f19be845346bf64f9568cd41aed40",
+  "train_sha256": "157ff944f77ca993556474132fbe5d33e75bcc05f8b3c92e6359916d700b0e9f",
+  "validation_sha256": "dfa30f072aa0b2a33096b14624e9b069af7acd00c6b920ed451d646c9ed549e5",
+  "seed": 20260818,
+  "epochs": 8,
+  "batch_size": 8,
+  "learning_rate": 2e-05,
+  "max_length": 96,
+  "train_rows": 500,
+  "validation_rows": 100,
+  "test_rows_used_during_training": 0,
+  "best_validation_metrics": {
+    "samples": 100,
+    "accuracy": 0.93,
+    "macro_f1": 0.929156,
+    "per_class": {
+      "normal": {
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.947368,
+        "support": 20
+      },
+      "sexual": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 20
+      },
+      "violence": {
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1": 0.888889,
+        "support": 20
+      },
+      "advertising": {
+        "precision": 0.909091,
+        "recall": 1.0,
+        "f1": 0.952381,
+        "support": 20
+      },
+      "sensitive_speech": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.857143,
+        "support": 20
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "normal",
+        "sexual",
+        "violence",
+        "advertising",
+        "sensitive_speech"
+      ],
+      "rows_actual_columns_predicted": [
+        [
+          18,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          20,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0,
+          15
+        ]
+      ]
+    },
+    "overall_intervention_rate": 0.82,
+    "violation_interception_rate": 1.0,
+    "normal_false_positive_rate": 0.1
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.453228,
+      "validation_accuracy": 0.59,
+      "validation_macro_f1": 0.500493,
+      "validation_sensitive_speech_recall": 0.8
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.744689,
+      "validation_accuracy": 0.83,
+      "validation_macro_f1": 0.810286,
+      "validation_sensitive_speech_recall": 0.3
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.193133,
+      "validation_accuracy": 0.93,
+      "validation_macro_f1": 0.927606,
+      "validation_sensitive_speech_recall": 0.7
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.024804,
+      "validation_accuracy": 0.88,
+      "validation_macro_f1": 0.879774,
+      "validation_sensitive_speech_recall": 0.75
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.007535,
+      "validation_accuracy": 0.93,
+      "validation_macro_f1": 0.929156,
+      "validation_sensitive_speech_recall": 0.75
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.003646,
+      "validation_accuracy": 0.92,
+      "validation_macro_f1": 0.919037,
+      "validation_sensitive_speech_recall": 0.75
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.002482,
+      "validation_accuracy": 0.92,
+      "validation_macro_f1": 0.919037,
+      "validation_sensitive_speech_recall": 0.75
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.00186,
+      "validation_accuracy": 0.92,
+      "validation_macro_f1": 0.919037,
+      "validation_sensitive_speech_recall": 0.75
+    }
+  ]
+}

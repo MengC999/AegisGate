@@ -1,0 +1,256 @@
+/* Only the backdrop is rasterized; foreground DOM stays at native resolution. */
+#glassShaderCanvas { display: none; pointer-events: none; }
+
+.glass-surface {
+  --glass-text: #f5f6f6;
+  --glass-secondary: #cbd0d1;
+  --glass-hairline: #ffffff18;
+  --glass-control: #11141627;
+  --glass-control-hover: #ffffff0c;
+  --glass-selected: #ffffff16;
+  --glass-rim: #ffffff26;
+  color: var(--glass-text);
+  border: 1px solid var(--glass-hairline);
+  border-top-color: var(--glass-rim);
+  border-radius: 8px;
+  background-color: #45494bbb;
+  box-shadow: inset 0 1px 0 #ffffff09, inset 0 -1px 0 #00000012, 0 6px 20px #00000012;
+  -webkit-backdrop-filter: blur(30px) saturate(.6);
+  backdrop-filter: blur(30px) saturate(.6);
+}
+
+html.glass-shader-ready .glass-surface {
+  isolation: isolate;
+  background-image: linear-gradient(130deg, #ffffff09, #ffffff00 48%, #00000005), var(--glass-backdrop);
+  background-size: 100% 100%, var(--glass-viewport);
+  background-position: left top, center top;
+  background-attachment: scroll, fixed;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+
+/* The material is already blurred. Never filter a foreground subtree. */
+html.glass-shader-ready .glass-surface,
+html.glass-shader-ready .glass-surface * {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.glass-surface [data-glass-ink] {
+  color: var(--glass-text) !important;
+  mix-blend-mode: normal;
+  text-shadow: none;
+}
+
+.glass-surface :is(.metric > span, .home-kpi > div > span, .home-kpi small,
+  .runtime-summary dt, .brand span, .sidebar-caption, .sidebar-bottom > div > span,
+  .breadcrumb-root, .widget-heading p, .widget-label, .todo-meta, .activity-row p,
+  .donut-center > span, .completion-details span, .result-placeholder > span)[data-glass-ink] {
+  color: var(--glass-secondary) !important;
+}
+
+.glass-surface :is(h2, h3) { font-weight: 600; }
+.glass-surface .metric.integrity strong[data-glass-ink] { color: var(--green) !important; }
+
+.app-sidebar.glass-surface {
+  border-width: 0 1px 0 0;
+  border-radius: 0;
+  border-right-color: #8aa9a34d;
+  background: transparent;
+  box-shadow: 1px 0 0 #07151818;
+  -webkit-backdrop-filter: blur(24px) saturate(1.05) !important;
+  backdrop-filter: blur(24px) saturate(1.05) !important;
+}
+/* The WebGL backdrop is for content surfaces. The dock uses native backdrop blur
+   so its text and icons stay sharp while the page behind it is softened. */
+html.glass-shader-ready .app-sidebar.glass-surface {
+  background: transparent;
+  background-image: none;
+  -webkit-backdrop-filter: blur(24px) saturate(1.05) !important;
+  backdrop-filter: blur(24px) saturate(1.05) !important;
+}
+.app-sidebar.glass-surface .brand,
+.app-sidebar.glass-surface .view-tabs,
+.app-sidebar.glass-surface .sidebar-bottom {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.topbar.glass-surface { border-width: 0 0 1px; border-radius: 0; box-shadow: 0 1px 0 #00000008; }
+.runtime-summary.glass-surface { box-shadow: none; }
+.runtime-summary div { background: transparent; border: 0; box-shadow: none; }
+.runtime-summary div + div { border-left: 1px solid var(--glass-hairline); }
+
+.glass-surface.liquid-card {
+  border-color: #8aa9a34d;
+  background: transparent;
+  box-shadow: 0 10px 26px #07151824, inset 0 0 0 1px #07151820;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+html.glass-shader-ready .glass-surface.liquid-card {
+  background: transparent;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.glass-surface.liquid-card:is(.home-kpi, .dashboard-widget):hover {
+  border-color: #8fd7c697;
+  background: transparent;
+  box-shadow: 0 14px 32px #07151838, inset 0 0 0 1px #07151824;
+}
+.kpi-icon { border-radius: 6px; }
+.home-todo-row { min-width: 0; }
+.todo-meta { flex-wrap: wrap; }
+.metric::before { width: 14px; height: 2px; }
+.metric + .metric { border-left: 0; }
+.metric { border-color: var(--glass-hairline); }
+
+/* One glass surface per tool; internal data groups use hairline separators. */
+.official-grid { border: 0; border-radius: 0; background: transparent; }
+.official-item { position: relative; border: 0; border-right: 1px solid var(--glass-hairline); padding-top: 12px; }
+.official-item > span { display: flex; align-items: center; gap: 7px; color: var(--glass-secondary); font-weight: 500; }
+.official-item > span::before { content: ""; width: 5px; height: 5px; flex: 0 0 5px; border-radius: 50%; background: var(--blue); }
+.official-item.sexual > span::before { background: var(--violet); }
+.official-item.violence > span::before { background: var(--red); }
+.official-item.advertising > span::before { background: var(--amber); }
+.action-summary { margin-top: 14px; padding-top: 8px; border-top: 1px solid var(--glass-hairline); }
+.action-summary div { border-color: var(--glass-hairline); }
+.action-summary span { color: var(--glass-secondary); }
+.decision-meta, .decision-routing { border: 0; }
+.decision-meta div, .decision-routing div, .system-details div { background: transparent; box-shadow: none; border: 0; border-radius: 0; }
+
+.glass-surface :is(input[type="text"], input[type="search"], input[type="password"], textarea, select) {
+  color: var(--glass-text);
+  background: var(--glass-control);
+  border: 1px solid var(--glass-hairline);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 2px #00000008;
+}
+.glass-surface :is(input, textarea)::placeholder { color: var(--glass-secondary); opacity: .75; }
+.glass-surface :is(input, textarea, select):focus { border-color: rgba(var(--accent-rgb), .6); box-shadow: 0 0 0 3px rgba(var(--accent-rgb), .1); }
+.glass-surface .nav-search input { background: transparent; border: 0; box-shadow: none; }
+.glass-surface .nav-search { background: var(--glass-control); border-color: var(--glass-hairline); }
+.glass-surface :is(.segmented, .mini-segmented, .category-tabs) { background: var(--glass-control); border: 1px solid var(--glass-hairline); padding: 4px; gap: 4px; }
+.glass-surface :is(.segment, .mini-segment, .category-tab) { color: var(--glass-secondary); font-weight: 500; }
+.glass-surface :is(.segment.active, .mini-segment.active, .category-tab.active) { color: var(--glass-text); background: var(--glass-selected); box-shadow: inset 0 1px 0 var(--glass-rim), 0 1px 3px #00000012; }
+.glass-surface :is(.secondary-button, .quick-chip, .enterprise-row-actions button) { color: var(--glass-secondary); background: #ffffff05; border-color: var(--glass-hairline); font-weight: 500; }
+.glass-surface :is(.secondary-button, .quick-chip, .enterprise-row-actions button):hover { color: var(--glass-text); background: var(--glass-control-hover); border-color: var(--glass-rim); }
+.glass-surface .primary-button { color: var(--accent); background: rgba(var(--accent-rgb), .12); border-color: rgba(var(--accent-rgb), .32); box-shadow: inset 0 1px 0 #ffffff12; font-weight: 600; }
+.glass-surface .primary-button:hover { background: rgba(var(--accent-rgb), .2); border-color: rgba(var(--accent-rgb), .5); }
+.glass-surface .decision-legend { padding: 10px 0; border-color: var(--glass-hairline); }
+.glass-surface .decision-legend span { background: transparent; padding-inline: 0; font-weight: 500; }
+.glass-surface .decision-legend { gap: 16px; }
+.glass-surface .placeholder-mark { width: 44px; height: 44px; background: rgba(var(--accent-rgb), .06); border-color: rgba(var(--accent-rgb), .24); color: var(--accent); }
+.glass-surface .result-placeholder { gap: 12px; }
+
+.view-tab.active, .sidebar-shortcuts button.active { box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .18); background: rgba(var(--accent-rgb), .1); }
+.view-tab:focus:not(:focus-visible) { outline: none; }
+
+@media (max-width: 760px) {
+  .official-item:nth-child(2) { border-right: 0; }
+  .official-item:nth-child(n + 3) { border-top: 1px solid var(--glass-hairline); }
+}
+
+@media (min-width: 701px) and (max-width: 950px) {
+  .home-todo-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.glass-appearance { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; }
+.glass-appearance > span { font-size: 11px; color: var(--muted); }
+.glass-theme-options { display: flex; gap: 3px; padding: 3px; border: 1px solid var(--line); border-radius: 6px; }
+.glass-theme-options button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 30px; min-width: 76px; padding: 0 10px; color: var(--muted); border: 0; border-radius: 3px; background: transparent; font-size: 11px; }
+.glass-theme-options svg { width: 14px; height: 14px; }
+.glass-theme-options button[aria-pressed="true"] { color: var(--accent); background: rgba(var(--accent-rgb), .15); }
+
+/* A small type increase keeps dense console content readable. */
+.dashboard-widget .widget-heading h2 { font-size: 15px; }
+.testing-pane h2, .result-pane h2, .tool-panel h2, .official-band h2 { font-size: 16px; }
+.glass-surface :is(.todo-title, .field-label, .text-field > span) { font-size: 12px; }
+.home-kpi > div > span, .metric > span, .activity-row strong { font-size: 12px; }
+.home-kpi small, .widget-heading p, .widget-label, .todo-meta, .activity-row p { font-size: 11px; }
+.runtime-summary dt { font-size: 11px; }
+.runtime-summary dd { font-size: 13px; }
+.home-kpi strong { font-size: 28px; }
+.metric strong, .official-item strong { font-size: 26px; }
+.glass-surface textarea { font-size: 14px; line-height: 1.7; }
+.glass-surface .result-placeholder strong { font-size: 15px; }
+.glass-surface .result-placeholder > span { font-size: 12px; }
+.ops-table, .batch-table { font-size: 11px; }
+.ops-table th, .batch-table th { font-size: 10px; }
+.home-kpi > div > span, .home-kpi small { white-space: normal; overflow-wrap: anywhere; }
+
+@media (max-width: 950px) {
+  .home-kpi strong { font-size: 26px; }
+}
+
+html[data-glass-theme="light"] .glass-surface {
+  --glass-text: #202725;
+  --glass-secondary: #4c5753;
+  --glass-hairline: #1627231c;
+  --glass-control: #ffffff38;
+  --glass-control-hover: #ffffff60;
+  --glass-selected: #ffffff80;
+  --glass-rim: #ffffff75;
+  --ink: #202826;
+  --muted: #46524e;
+  --line: #18292326;
+  --accent: #176753;
+  --accent-rgb: 23, 103, 83;
+  --green: #166147;
+  --red: #963544;
+  --amber: #775212;
+  --blue: #285b86;
+  --violet: #69428a;
+  color: var(--ink);
+  border-color: var(--line);
+  background-color: #ffffffc4;
+  color-scheme: light;
+}
+html[data-glass-theme="light"] .glass-surface.liquid-card {
+  --glass-text: #f5f6f6;
+  --glass-secondary: #cbd0d1;
+  --glass-hairline: #8aa9a34d;
+  --ink: #f5f6f6;
+  --muted: #cbd0d1;
+  border-color: #45615a70;
+  background: transparent;
+  box-shadow: 0 10px 26px #102c271a, inset 0 0 0 1px #2640391c;
+  color-scheme: dark;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html[data-glass-theme="light"] .app-sidebar.glass-surface {
+  border-right-color: #45615a70;
+  background: transparent;
+  box-shadow: 1px 0 0 #2640391c;
+  color: #f5f6f6;
+}
+html[data-glass-theme="light"].glass-shader-ready .app-sidebar.glass-surface {
+  background: transparent;
+  background-image: none;
+}
+html[data-glass-theme="light"].glass-shader-ready .glass-surface.liquid-card {
+  background: transparent;
+}
+html[data-glass-theme="light"] .glass-surface.liquid-card:is(.home-kpi, .dashboard-widget):hover {
+  border-color: #2d716593;
+  background: transparent;
+  box-shadow: 0 14px 32px #102c2724, inset 0 0 0 1px #26403924;
+}
+
+html[data-glass-theme="light"] .glass-surface :is(
+  p, small, label, dt, dd, th, td, .widget-empty, .risk-legend > div,
+  .chart-legend, .chart-footnote, .home-todo-row, .todo-deadline, .widget-bottom-link,
+  .view-tab, .brand, .icon-button, .quick-chip, .secondary-button, .segment, .mini-segment,
+  .background-option, .background-preview figcaption, input, textarea, select
+) { color: var(--ink); }
+html[data-glass-theme="light"] .glass-surface :is(.primary-button, .text-button, .view-tab.active) { color: var(--accent); }
+html[data-glass-theme="light"] .glass-surface :is(input, textarea, select) { border-color: var(--line); background-color: #ffffff24; }
+html[data-glass-theme="light"] .glass-surface :is(input, textarea)::placeholder { color: var(--muted); }
+html[data-glass-theme="light"] .glass-surface select option { background: #e1e5e3; color: var(--ink); }
+
+@media (forced-colors: active) {
+  html.glass-shader-ready .glass-surface { background-image: none; background-color: Canvas; }
+  .glass-surface.liquid-card { background-image: none !important; background-color: Canvas !important; border-color: CanvasText; box-shadow: none; }
+  .glass-surface [data-glass-ink], .glass-surface :is(span, p, small, dt)[data-glass-ink] { mix-blend-mode: normal; color: CanvasText !important; }
+}

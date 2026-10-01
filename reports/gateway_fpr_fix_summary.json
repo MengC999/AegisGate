@@ -1,0 +1,54 @@
+{
+  "report_version": "1.0.0",
+  "purpose": "端到端过滤效果真实性与正常文本误判率修复前后对照",
+  "diagnosis": {
+    "dataset": "data/semantic_classifier_v2/test.jsonl",
+    "dataset_sha256": "a4effcb231e0dc6e1a4244bcff7faf37c9e4237e3c735af5f1953109cdc6e3cd",
+    "normal_denominator": 50,
+    "pre_fix_false_positive_samples": 15,
+    "pre_fix_normal_false_positive_rate": 0.3,
+    "pre_fix_intervention_rate_on_violations": 0.975,
+    "pre_fix_report": "reports/semantic_model_evaluation_v2_regression_pre_fix.json",
+    "diagnostic_artifact": "reports/semantic_gateway_false_positive_diagnostics.json"
+  },
+  "repair": {
+    "engine_sha256": "9cb6606c2b0b9ec7dcea29c3e2916f44f2834867d1e9f3470230ff92a5c077df",
+    "changes": [
+      "防御性审核/引用/风险解释语境支持原始、规范化和紧凑视图，并保留执行意图优先级",
+      "Naive Bayes 只有在存在规则或 ONNX 等非辅助证据时才参与融合；单独信号不能产生处置",
+      "保留规则、ONNX 与 Naive Bayes 的独立 Evidence 和具体内部类别"
+    ],
+    "tuning_source": "仅使用 semantic_classifier_v2 train/validation 诊断；未使用冻结 e2e holdout 调参"
+  },
+  "post_fix_regression": {
+    "report": "reports/semantic_model_evaluation_v2_regression.json",
+    "samples": 250,
+    "violation_interception_rate": 0.97,
+    "normal_false_positive_rate": 0.0,
+    "false_positive_samples": 0,
+    "independent_holdout": false,
+    "diagnostic_artifact": "reports/semantic_gateway_false_positive_diagnostics_post_fix.json"
+  },
+  "frozen_e2e_holdout": {
+    "dataset": "data/e2e_holdout_v1/test.jsonl",
+    "dataset_sha256": "51c923b2394b814295031020219b33d7b72d55a0f4c68fe9ca18951aefa4d4f0",
+    "manifest_sha256": "63d3ae7df2c8e880f78cdc4a0153a2ef32b9ab49b094b271d958e0305acb7285",
+    "samples": 200,
+    "label_counts": {
+      "normal": 100,
+      "sexual": 25,
+      "violence": 25,
+      "advertising": 25,
+      "sensitive_speech": 25
+    },
+    "violation_interception_rate": 0.99,
+    "normal_false_positive_rate": 0.02,
+    "meets_competition_threshold": true,
+    "report": "reports/e2e_gateway_holdout_v1.json"
+  },
+  "scope": {
+    "model_backend": "onnxruntime-cpu / CPUExecutionProvider",
+    "default_provider": "mock",
+    "word_report_manifest_sbom_changed": false
+  }
+}

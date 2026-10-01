@@ -1,0 +1,70 @@
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-package:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/build_manifest.py
+      - run: python scripts/delivery_preflight.py --require-manifest --strict
+      - run: python -m unittest discover -s tests -p "test_delivery_safety.py"
+      - run: python -m unittest discover -s tests -p "test_release_archive.py"
+      - run: python scripts/build_delivery_package.py --output ../AegisGate-source.zip
+      - run: python scripts/verify_release.py ../AegisGate-source.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-${{ matrix.os }}
+          path: ../AegisGate-source.zip
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check web/app.js
+      - run: node --check web/glass-shader.js
+      - run: node --test tests/test_dashboard.cjs tests/test_operations_navigation.cjs
+  python:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - uses: actions/cache@v4
+        with:
+          path: |
+            models/official_four_onnx_v1/model.onnx
+            models/official_four_onnx_v2/model.onnx
+          key: onnx-${{ hashFiles('models/downloads.json') }}
+      - run: python scripts/download_models.py --model all
+      - run: python -m unittest discover -s tests -p "test_*.py"
+      - run: python scripts/onnx_smoke_test.py
+      - run: python scripts/launch_demo.py --health-check

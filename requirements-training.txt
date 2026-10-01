@@ -1,0 +1,6 @@
+# Explicit training/export environment. Not required by the final demo runtime.
+-r requirements-models.txt
+onnx==1.17.0
+torch==2.6.0
+transformers==4.48.3
+huggingface-hub==0.36.2

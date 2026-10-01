@@ -1,0 +1,8 @@
+AegisGate 官方四类语义分类数据集 v1 采用 Creative Commons Attribution 4.0 International (CC BY 4.0) 许可。
+
+许可证标识：CC-BY-4.0
+法律文本：https://creativecommons.org/licenses/by/4.0/legalcode
+人类可读摘要：https://creativecommons.org/licenses/by/4.0/
+署名：AegisGate 项目组自建合成短文本 v1
+
+数据全部为项目组为防御性内容分类任务自建的合成短文本。允许在遵守 CC BY 4.0 署名条件的前提下复制、修改和再分发。

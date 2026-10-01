@@ -1,0 +1,29 @@
+AegisGate 3.1.0 — source + ONNX models
+
+Author: M4wwtr4c3. Source license: Apache-2.0.
+
+Extract this archive into an empty folder and enter AegisGate/.
+See AegisGate/README.md for Python virtual environment setup.
+
+Full model setup:
+  python -m pip install -r requirements-dev.txt
+  python scripts/download_models.py --model all --source-dir ../model-assets
+  python scripts/download_models.py --model all --verify-only
+  python scripts/onnx_smoke_test.py
+  python scripts/launch_demo.py
+
+The model installation above is local and does not access GitHub.
+Python and pip dependencies are not bundled. Without installing ONNX
+or any third-party Python packages, python scripts/launch_demo.py can
+still run Mock, rules and the auxiliary classifier. Semantic-model
+status is unavailable until its dependencies and weights are installed.
+
+Scope: Python backend + Web frontend. Android experiments/APKs, private
+reports, patent materials, photographs and local runtime data are excluded.
+Optional DeepSeek/Ollama models are not included.
+
+Do not commit model-assets/ to Git. Use the separate source ZIP for the
+repository, and publish ONNX through model release assets.
+
+SHA256SUMS at this level covers every packaged file except itself.
+Obtain the outer archive hash from a trusted separate distribution channel.

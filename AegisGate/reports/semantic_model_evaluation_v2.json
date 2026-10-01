@@ -1,0 +1,8319 @@
+{
+  "evaluated_at_utc": "2026-08-17T17:23:59.147233+00:00",
+  "scope_notice": "仅适用于随附的 250 条项目组自建合成封存测试样本，不代表开放环境或生产准确率。",
+  "dataset": {
+    "dataset_id": "aegisgate-official-four-v2",
+    "dataset_version": "2.0.0",
+    "manifest_sha256": "8dcf591bf5e00abf1f3ea66c01570904778f19be845346bf64f9568cd41aed40",
+    "test_file": "test.jsonl",
+    "test_data_sha256": "a4effcb231e0dc6e1a4244bcff7faf37c9e4237e3c735af5f1953109cdc6e3cd",
+    "test_samples": 250
+  },
+  "model": {
+    "status": {
+      "model_id": "aegisgate-official-four-rbt3-v2",
+      "status": "ready",
+      "reason": "verified",
+      "backend": "onnxruntime-cpu"
+    },
+    "model_sha256": "023e11ba9bef71b5e285e0f720bef4ea72aeeaf5e136f935abdeadf5cfc86710",
+    "model_bytes": 154006588,
+    "execution_provider": "CPUExecutionProvider"
+  },
+  "raw_classifier": {
+    "samples": 250,
+    "accuracy": 0.94,
+    "macro_f1": 0.939255,
+    "per_class": {
+      "normal": {
+        "precision": 0.956522,
+        "recall": 0.88,
+        "f1": 0.916667,
+        "support": 50
+      },
+      "sexual": {
+        "precision": 0.943396,
+        "recall": 1.0,
+        "f1": 0.970874,
+        "support": 50
+      },
+      "violence": {
+        "precision": 0.847458,
+        "recall": 1.0,
+        "f1": 0.917431,
+        "support": 50
+      },
+      "advertising": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 50
+      },
+      "sensitive_speech": {
+        "precision": 0.97619,
+        "recall": 0.82,
+        "f1": 0.891304,
+        "support": 50
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "normal",
+        "sexual",
+        "violence",
+        "advertising",
+        "sensitive_speech"
+      ],
+      "rows_actual_columns_predicted": [
+        [
+          44,
+          1,
+          4,
+          0,
+          1
+        ],
+        [
+          0,
+          50,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          50,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          50,
+          0
+        ],
+        [
+          2,
+          2,
+          5,
+          0,
+          41
+        ]
+      ]
+    },
+    "overall_intervention_rate": 0.816,
+    "violation_interception_rate": 0.99,
+    "normal_false_positive_rate": 0.12
+  },
+  "thresholded_evidence": {
+    "threshold": 0.75,
+    "classification": {
+      "samples": 250,
+      "accuracy": 0.932,
+      "macro_f1": 0.93131,
+      "per_class": {
+        "normal": {
+          "precision": 0.88,
+          "recall": 0.88,
+          "f1": 0.88,
+          "support": 50
+        },
+        "sexual": {
+          "precision": 0.98,
+          "recall": 0.98,
+          "f1": 0.98,
+          "support": 50
+        },
+        "violence": {
+          "precision": 0.847458,
+          "recall": 1.0,
+          "f1": 0.917431,
+          "support": 50
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 50
+        },
+        "sensitive_speech": {
+          "precision": 0.97561,
+          "recall": 0.8,
+          "f1": 0.879121,
+          "support": 50
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            44,
+            1,
+            4,
+            0,
+            1
+          ],
+          [
+            1,
+            49,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            50,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            50,
+            0
+          ],
+          [
+            5,
+            0,
+            5,
+            0,
+            40
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.8,
+      "violation_interception_rate": 0.97,
+      "normal_false_positive_rate": 0.12
+    },
+    "binary": {
+      "samples": 250,
+      "precision": 0.97,
+      "recall": 0.97,
+      "f1": 0.97,
+      "violation_interception_rate": 0.97,
+      "normal_false_positive_rate": 0.12,
+      "confusion": {
+        "tp": 194,
+        "fp": 6,
+        "fn": 6,
+        "tn": 44
+      }
+    }
+  },
+  "end_to_end_gateway": {
+    "binary": {
+      "samples": 250,
+      "precision": 0.892045,
+      "recall": 0.785,
+      "f1": 0.835106,
+      "violation_interception_rate": 0.785,
+      "normal_false_positive_rate": 0.38,
+      "confusion": {
+        "tp": 157,
+        "fp": 19,
+        "fn": 43,
+        "tn": 31
+      }
+    },
+    "actions": {
+      "block": 34,
+      "mask": 45,
+      "pass": 74,
+      "review": 92,
+      "support": 5
+    },
+    "official_category_recall": {
+      "normal": 0.62,
+      "sexual": 0.98,
+      "violence": 1.0,
+      "advertising": 1.0,
+      "sensitive_speech": 0.92
+    }
+  },
+  "by_variant_type": {
+    "colloquial": {
+      "samples": 50,
+      "accuracy": 0.94,
+      "macro_f1": 0.939546,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 0.9,
+          "f1": 0.947368,
+          "support": 10
+        },
+        "sexual": {
+          "precision": 0.909091,
+          "recall": 1.0,
+          "f1": 0.952381,
+          "support": 10
+        },
+        "violence": {
+          "precision": 0.833333,
+          "recall": 1.0,
+          "f1": 0.909091,
+          "support": 10
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888889,
+          "support": 10
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            9,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            8
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.82,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.1
+    },
+    "contextual": {
+      "samples": 50,
+      "accuracy": 0.96,
+      "macro_f1": 0.95873,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "sexual": {
+          "precision": 0.909091,
+          "recall": 1.0,
+          "f1": 0.952381,
+          "support": 10
+        },
+        "violence": {
+          "precision": 0.909091,
+          "recall": 1.0,
+          "f1": 0.952381,
+          "support": 10
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888889,
+          "support": 10
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            8
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.8,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "mixed_language": {
+      "samples": 50,
+      "accuracy": 0.94,
+      "macro_f1": 0.939596,
+      "per_class": {
+        "normal": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1": 0.9,
+          "support": 10
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "violence": {
+          "precision": 0.833333,
+          "recall": 1.0,
+          "f1": 0.909091,
+          "support": 10
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888889,
+          "support": 10
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            9,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            0,
+            8
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.8,
+      "violation_interception_rate": 0.975,
+      "normal_false_positive_rate": 0.1
+    },
+    "standard": {
+      "samples": 50,
+      "accuracy": 0.92,
+      "macro_f1": 0.917,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 0.7,
+          "f1": 0.823529,
+          "support": 10
+        },
+        "sexual": {
+          "precision": 0.909091,
+          "recall": 1.0,
+          "f1": 0.952381,
+          "support": 10
+        },
+        "violence": {
+          "precision": 0.833333,
+          "recall": 1.0,
+          "f1": 0.909091,
+          "support": 10
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "sensitive_speech": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1": 0.9,
+          "support": 10
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            7,
+            1,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            10,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            9
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.86,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.3
+    },
+    "typo_obfuscated": {
+      "samples": 50,
+      "accuracy": 0.94,
+      "macro_f1": 0.939596,
+      "per_class": {
+        "normal": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1": 0.9,
+          "support": 10
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "violence": {
+          "precision": 0.833333,
+          "recall": 1.0,
+          "f1": 0.909091,
+          "support": 10
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888889,
+          "support": 10
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            9,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            0,
+            8
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.8,
+      "violation_interception_rate": 0.975,
+      "normal_false_positive_rate": 0.1
+    }
+  },
+  "by_subtype": {
+    "affiliate": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "attack_escape": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "brand_trial": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "building_damage": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "coupon": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "cyber_abuse": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "deepfake_nudity": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "document_forgery": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "email_marketing": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "evasion": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "explicit_roleplay": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "explicit_video_script": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "financial_evasion": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "firebomb": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "forced_fighting": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "general": {
+      "samples": 20,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 20
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.0,
+      "violation_interception_rate": 0.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "group_buy": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "hate": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "impersonation": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "indiscriminate": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "industrial_harm": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "live_stripping": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "membership_upgrade": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "minor_targeting": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "misinformation": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "obscene_comics": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "paid_course": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "popup_registration": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "poster_reward": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "price_quote": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "privacy_leak": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "prompt_injection": {
+      "samples": 10,
+      "accuracy": 0.6,
+      "macro_f1": 0.15,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75,
+          "support": 10
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            2,
+            0,
+            0,
+            6
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.8,
+      "violation_interception_rate": 0.8,
+      "normal_false_positive_rate": 0.0
+    },
+    "public_panic": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "safe_advertising_discussion": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.0,
+      "violation_interception_rate": 0.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "safe_privacy_discussion": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.0,
+      "violation_interception_rate": 0.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "safe_prompt_injection_discussion": {
+      "samples": 5,
+      "accuracy": 0.8,
+      "macro_f1": 0.177778,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888889,
+          "support": 5
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            4,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.2,
+      "violation_interception_rate": 0.0,
+      "normal_false_positive_rate": 0.2
+    },
+    "safe_sexual_discussion": {
+      "samples": 5,
+      "accuracy": 0.8,
+      "macro_f1": 0.177778,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888889,
+          "support": 5
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            4,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.2,
+      "violation_interception_rate": 0.0,
+      "normal_false_positive_rate": 0.2
+    },
+    "safe_support_discussion": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.0,
+      "violation_interception_rate": 0.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "safe_violence_discussion": {
+      "samples": 5,
+      "accuracy": 0.2,
+      "macro_f1": 0.066667,
+      "per_class": {
+        "normal": {
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.333333,
+          "support": 5
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            1,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 0.8,
+      "violation_interception_rate": 0.0,
+      "normal_false_positive_rate": 0.8
+    },
+    "school_threat": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "self_harm": {
+      "samples": 5,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "sexual_solicitation": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "target_schedule": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "torrent_sharing": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "torture": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "violence": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    },
+    "voyeurism": {
+      "samples": 5,
+      "accuracy": 1.0,
+      "macro_f1": 0.2,
+      "per_class": {
+        "normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sexual": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "violence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "advertising": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "sensitive_speech": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "normal",
+          "sexual",
+          "violence",
+          "advertising",
+          "sensitive_speech"
+        ],
+        "rows_actual_columns_predicted": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "overall_intervention_rate": 1.0,
+      "violation_interception_rate": 1.0,
+      "normal_false_positive_rate": 0.0
+    }
+  },
+  "details": [
+    {
+      "id": "normal-test-f17-v1",
+      "variant_type": "standard",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.975437,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f17-v2",
+      "variant_type": "colloquial",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.996152,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f17-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997216,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f17-v4",
+      "variant_type": "mixed_language",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.991324,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f17-v5",
+      "variant_type": "contextual",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997441,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f18-v1",
+      "variant_type": "standard",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997814,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f18-v2",
+      "variant_type": "colloquial",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997813,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f18-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.99796,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f18-v4",
+      "variant_type": "mixed_language",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997802,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f18-v5",
+      "variant_type": "contextual",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.998032,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f19-v1",
+      "variant_type": "standard",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997873,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f19-v2",
+      "variant_type": "colloquial",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997737,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f19-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997985,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f19-v4",
+      "variant_type": "mixed_language",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997595,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f19-v5",
+      "variant_type": "contextual",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.998039,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f20-v1",
+      "variant_type": "standard",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997733,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f20-v2",
+      "variant_type": "colloquial",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.99778,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f20-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997971,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f20-v4",
+      "variant_type": "mixed_language",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997535,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f20-v5",
+      "variant_type": "contextual",
+      "subtype": "general",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997938,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f21-v1",
+      "variant_type": "standard",
+      "subtype": "safe_sexual_discussion",
+      "expected": "normal",
+      "predicted": "sexual",
+      "confidence": 0.965609,
+      "evidence_label": "sexual",
+      "raw_correct": false,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "normal-test-f21-v2",
+      "variant_type": "colloquial",
+      "subtype": "safe_sexual_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.988175,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "normal-test-f21-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "safe_sexual_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.978737,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "normal-test-f21-v4",
+      "variant_type": "mixed_language",
+      "subtype": "safe_sexual_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.744311,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "normal-test-f21-v5",
+      "variant_type": "contextual",
+      "subtype": "safe_sexual_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.995301,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "normal-test-f22-v1",
+      "variant_type": "standard",
+      "subtype": "safe_violence_discussion",
+      "expected": "normal",
+      "predicted": "violence",
+      "confidence": 0.995766,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "normal-test-f22-v2",
+      "variant_type": "colloquial",
+      "subtype": "safe_violence_discussion",
+      "expected": "normal",
+      "predicted": "violence",
+      "confidence": 0.974782,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "normal-test-f22-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "safe_violence_discussion",
+      "expected": "normal",
+      "predicted": "violence",
+      "confidence": 0.990258,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "normal-test-f22-v4",
+      "variant_type": "mixed_language",
+      "subtype": "safe_violence_discussion",
+      "expected": "normal",
+      "predicted": "violence",
+      "confidence": 0.996776,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "normal-test-f22-v5",
+      "variant_type": "contextual",
+      "subtype": "safe_violence_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.497211,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f23-v1",
+      "variant_type": "standard",
+      "subtype": "safe_advertising_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.991566,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f23-v2",
+      "variant_type": "colloquial",
+      "subtype": "safe_advertising_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997684,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f23-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "safe_advertising_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997307,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f23-v4",
+      "variant_type": "mixed_language",
+      "subtype": "safe_advertising_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.996802,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f23-v5",
+      "variant_type": "contextual",
+      "subtype": "safe_advertising_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997765,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f24-v1",
+      "variant_type": "standard",
+      "subtype": "safe_prompt_injection_discussion",
+      "expected": "normal",
+      "predicted": "sensitive_speech",
+      "confidence": 0.839454,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": false,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 95
+    },
+    {
+      "id": "normal-test-f24-v2",
+      "variant_type": "colloquial",
+      "subtype": "safe_prompt_injection_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.99467,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 95
+    },
+    {
+      "id": "normal-test-f24-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "safe_prompt_injection_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.992327,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 95
+    },
+    {
+      "id": "normal-test-f24-v4",
+      "variant_type": "mixed_language",
+      "subtype": "safe_prompt_injection_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.949204,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 95
+    },
+    {
+      "id": "normal-test-f24-v5",
+      "variant_type": "contextual",
+      "subtype": "safe_prompt_injection_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.996435,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 95
+    },
+    {
+      "id": "normal-test-f25-v1",
+      "variant_type": "standard",
+      "subtype": "safe_privacy_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997322,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 56
+    },
+    {
+      "id": "normal-test-f25-v2",
+      "variant_type": "colloquial",
+      "subtype": "safe_privacy_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997971,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 54
+    },
+    {
+      "id": "normal-test-f25-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "safe_privacy_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.998118,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 55
+    },
+    {
+      "id": "normal-test-f25-v4",
+      "variant_type": "mixed_language",
+      "subtype": "safe_privacy_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997638,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 56
+    },
+    {
+      "id": "normal-test-f25-v5",
+      "variant_type": "contextual",
+      "subtype": "safe_privacy_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997895,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 56
+    },
+    {
+      "id": "normal-test-f26-v1",
+      "variant_type": "standard",
+      "subtype": "safe_support_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.981835,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f26-v2",
+      "variant_type": "colloquial",
+      "subtype": "safe_support_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.9965,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f26-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "safe_support_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.995513,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f26-v4",
+      "variant_type": "mixed_language",
+      "subtype": "safe_support_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.993788,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "normal-test-f26-v5",
+      "variant_type": "contextual",
+      "subtype": "safe_support_discussion",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.997082,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "sexual-test-f17-v1",
+      "variant_type": "standard",
+      "subtype": "obscene_comics",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.997181,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 79
+    },
+    {
+      "id": "sexual-test-f17-v2",
+      "variant_type": "colloquial",
+      "subtype": "obscene_comics",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996948,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 79
+    },
+    {
+      "id": "sexual-test-f17-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "obscene_comics",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.997086,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 79
+    },
+    {
+      "id": "sexual-test-f17-v4",
+      "variant_type": "mixed_language",
+      "subtype": "obscene_comics",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.997084,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 79
+    },
+    {
+      "id": "sexual-test-f17-v5",
+      "variant_type": "contextual",
+      "subtype": "obscene_comics",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996915,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 19
+    },
+    {
+      "id": "sexual-test-f18-v1",
+      "variant_type": "standard",
+      "subtype": "explicit_roleplay",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996485,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 84
+    },
+    {
+      "id": "sexual-test-f18-v2",
+      "variant_type": "colloquial",
+      "subtype": "explicit_roleplay",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996509,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 84
+    },
+    {
+      "id": "sexual-test-f18-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "explicit_roleplay",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996402,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 84
+    },
+    {
+      "id": "sexual-test-f18-v4",
+      "variant_type": "mixed_language",
+      "subtype": "explicit_roleplay",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996385,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 84
+    },
+    {
+      "id": "sexual-test-f18-v5",
+      "variant_type": "contextual",
+      "subtype": "explicit_roleplay",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996483,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 20
+    },
+    {
+      "id": "sexual-test-f19-v1",
+      "variant_type": "standard",
+      "subtype": "deepfake_nudity",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996629,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f19-v2",
+      "variant_type": "colloquial",
+      "subtype": "deepfake_nudity",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996478,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f19-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "deepfake_nudity",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996091,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f19-v4",
+      "variant_type": "mixed_language",
+      "subtype": "deepfake_nudity",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996508,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f19-v5",
+      "variant_type": "contextual",
+      "subtype": "deepfake_nudity",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996457,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sexual-test-f20-v1",
+      "variant_type": "standard",
+      "subtype": "minor_targeting",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996164,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "sexual-test-f20-v2",
+      "variant_type": "colloquial",
+      "subtype": "minor_targeting",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.99608,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "sexual-test-f20-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "minor_targeting",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996122,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "sexual-test-f20-v4",
+      "variant_type": "mixed_language",
+      "subtype": "minor_targeting",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996377,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 85
+    },
+    {
+      "id": "sexual-test-f20-v5",
+      "variant_type": "contextual",
+      "subtype": "minor_targeting",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996398,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 20
+    },
+    {
+      "id": "sexual-test-f21-v1",
+      "variant_type": "standard",
+      "subtype": "live_stripping",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.994543,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f21-v2",
+      "variant_type": "colloquial",
+      "subtype": "live_stripping",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.995835,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f21-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "live_stripping",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.995934,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f21-v4",
+      "variant_type": "mixed_language",
+      "subtype": "live_stripping",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.99305,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f21-v5",
+      "variant_type": "contextual",
+      "subtype": "live_stripping",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.994686,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sexual-test-f22-v1",
+      "variant_type": "standard",
+      "subtype": "torrent_sharing",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996901,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f22-v2",
+      "variant_type": "colloquial",
+      "subtype": "torrent_sharing",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996688,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f22-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "torrent_sharing",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996973,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 84
+    },
+    {
+      "id": "sexual-test-f22-v4",
+      "variant_type": "mixed_language",
+      "subtype": "torrent_sharing",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996744,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 84
+    },
+    {
+      "id": "sexual-test-f22-v5",
+      "variant_type": "contextual",
+      "subtype": "torrent_sharing",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996763,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 20
+    },
+    {
+      "id": "sexual-test-f23-v1",
+      "variant_type": "standard",
+      "subtype": "sexual_solicitation",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.991518,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f23-v2",
+      "variant_type": "colloquial",
+      "subtype": "sexual_solicitation",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.995704,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f23-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "sexual_solicitation",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.995662,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f23-v4",
+      "variant_type": "mixed_language",
+      "subtype": "sexual_solicitation",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.99454,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f23-v5",
+      "variant_type": "contextual",
+      "subtype": "sexual_solicitation",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.994026,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 20
+    },
+    {
+      "id": "sexual-test-f24-v1",
+      "variant_type": "standard",
+      "subtype": "voyeurism",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.382406,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "sexual-test-f24-v2",
+      "variant_type": "colloquial",
+      "subtype": "voyeurism",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.956434,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual",
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 60
+    },
+    {
+      "id": "sexual-test-f24-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "voyeurism",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.898942,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sexual-test-f24-v4",
+      "variant_type": "mixed_language",
+      "subtype": "voyeurism",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.795172,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 53
+    },
+    {
+      "id": "sexual-test-f24-v5",
+      "variant_type": "contextual",
+      "subtype": "voyeurism",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.913666,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sexual-test-f25-v1",
+      "variant_type": "standard",
+      "subtype": "explicit_video_script",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996764,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 71
+    },
+    {
+      "id": "sexual-test-f25-v2",
+      "variant_type": "colloquial",
+      "subtype": "explicit_video_script",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996621,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 71
+    },
+    {
+      "id": "sexual-test-f25-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "explicit_video_script",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996728,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 71
+    },
+    {
+      "id": "sexual-test-f25-v4",
+      "variant_type": "mixed_language",
+      "subtype": "explicit_video_script",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996823,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 71
+    },
+    {
+      "id": "sexual-test-f25-v5",
+      "variant_type": "contextual",
+      "subtype": "explicit_video_script",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.996479,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 16
+    },
+    {
+      "id": "sexual-test-f26-v1",
+      "variant_type": "standard",
+      "subtype": "evasion",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.980993,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f26-v2",
+      "variant_type": "colloquial",
+      "subtype": "evasion",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.995203,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f26-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "evasion",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.993332,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f26-v4",
+      "variant_type": "mixed_language",
+      "subtype": "evasion",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.979384,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 82
+    },
+    {
+      "id": "sexual-test-f26-v5",
+      "variant_type": "contextual",
+      "subtype": "evasion",
+      "expected": "sexual",
+      "predicted": "sexual",
+      "confidence": 0.995795,
+      "evidence_label": "sexual",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sexual"
+      ],
+      "gateway_risk_score": 20
+    },
+    {
+      "id": "violence-test-f17-v1",
+      "variant_type": "standard",
+      "subtype": "school_threat",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997668,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f17-v2",
+      "variant_type": "colloquial",
+      "subtype": "school_threat",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997624,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f17-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "school_threat",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997617,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f17-v4",
+      "variant_type": "mixed_language",
+      "subtype": "school_threat",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997594,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f17-v5",
+      "variant_type": "contextual",
+      "subtype": "school_threat",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997571,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "violence-test-f18-v1",
+      "variant_type": "standard",
+      "subtype": "industrial_harm",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997777,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f18-v2",
+      "variant_type": "colloquial",
+      "subtype": "industrial_harm",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997368,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f18-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "industrial_harm",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997578,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f18-v4",
+      "variant_type": "mixed_language",
+      "subtype": "industrial_harm",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997451,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f18-v5",
+      "variant_type": "contextual",
+      "subtype": "industrial_harm",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997088,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "violence-test-f19-v1",
+      "variant_type": "standard",
+      "subtype": "indiscriminate",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.958087,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 63
+    },
+    {
+      "id": "violence-test-f19-v2",
+      "variant_type": "colloquial",
+      "subtype": "indiscriminate",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.822783,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 62
+    },
+    {
+      "id": "violence-test-f19-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "indiscriminate",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.951547,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 63
+    },
+    {
+      "id": "violence-test-f19-v4",
+      "variant_type": "mixed_language",
+      "subtype": "indiscriminate",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.814764,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 61
+    },
+    {
+      "id": "violence-test-f19-v5",
+      "variant_type": "contextual",
+      "subtype": "indiscriminate",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.822507,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "violence-test-f20-v1",
+      "variant_type": "standard",
+      "subtype": "forced_fighting",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997648,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f20-v2",
+      "variant_type": "colloquial",
+      "subtype": "forced_fighting",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997662,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f20-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "forced_fighting",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997601,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f20-v4",
+      "variant_type": "mixed_language",
+      "subtype": "forced_fighting",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997694,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f20-v5",
+      "variant_type": "contextual",
+      "subtype": "forced_fighting",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997223,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "violence-test-f21-v1",
+      "variant_type": "standard",
+      "subtype": "firebomb",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997447,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f21-v2",
+      "variant_type": "colloquial",
+      "subtype": "firebomb",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997398,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f21-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "firebomb",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997412,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f21-v4",
+      "variant_type": "mixed_language",
+      "subtype": "firebomb",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997329,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f21-v5",
+      "variant_type": "contextual",
+      "subtype": "firebomb",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997239,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "violence-test-f22-v1",
+      "variant_type": "standard",
+      "subtype": "target_schedule",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997606,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f22-v2",
+      "variant_type": "colloquial",
+      "subtype": "target_schedule",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997636,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f22-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "target_schedule",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997588,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f22-v4",
+      "variant_type": "mixed_language",
+      "subtype": "target_schedule",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997516,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f22-v5",
+      "variant_type": "contextual",
+      "subtype": "target_schedule",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997519,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "violence-test-f23-v1",
+      "variant_type": "standard",
+      "subtype": "torture",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997565,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f23-v2",
+      "variant_type": "colloquial",
+      "subtype": "torture",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997502,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f23-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "torture",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997611,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f23-v4",
+      "variant_type": "mixed_language",
+      "subtype": "torture",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997521,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f23-v5",
+      "variant_type": "contextual",
+      "subtype": "torture",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997554,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 15
+    },
+    {
+      "id": "violence-test-f24-v1",
+      "variant_type": "standard",
+      "subtype": "public_panic",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997234,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f24-v2",
+      "variant_type": "colloquial",
+      "subtype": "public_panic",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997155,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f24-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "public_panic",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.9969,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f24-v4",
+      "variant_type": "mixed_language",
+      "subtype": "public_panic",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.99608,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f24-v5",
+      "variant_type": "contextual",
+      "subtype": "public_panic",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.996918,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "violence-test-f25-v1",
+      "variant_type": "standard",
+      "subtype": "building_damage",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.991266,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f25-v2",
+      "variant_type": "colloquial",
+      "subtype": "building_damage",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.988965,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f25-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "building_damage",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.968833,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f25-v4",
+      "variant_type": "mixed_language",
+      "subtype": "building_damage",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.97472,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f25-v5",
+      "variant_type": "contextual",
+      "subtype": "building_damage",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.972789,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "violence-test-f26-v1",
+      "variant_type": "standard",
+      "subtype": "attack_escape",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997271,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f26-v2",
+      "variant_type": "colloquial",
+      "subtype": "attack_escape",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.997209,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f26-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "attack_escape",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.996084,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f26-v4",
+      "variant_type": "mixed_language",
+      "subtype": "attack_escape",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.996804,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "violence-test-f26-v5",
+      "variant_type": "contextual",
+      "subtype": "attack_escape",
+      "expected": "violence",
+      "predicted": "violence",
+      "confidence": 0.996168,
+      "evidence_label": "violence",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "violence"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f17-v1",
+      "variant_type": "standard",
+      "subtype": "coupon",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998158,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 63
+    },
+    {
+      "id": "advertising-test-f17-v2",
+      "variant_type": "colloquial",
+      "subtype": "coupon",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998282,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 62
+    },
+    {
+      "id": "advertising-test-f17-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "coupon",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998363,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 63
+    },
+    {
+      "id": "advertising-test-f17-v4",
+      "variant_type": "mixed_language",
+      "subtype": "coupon",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998213,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 63
+    },
+    {
+      "id": "advertising-test-f17-v5",
+      "variant_type": "contextual",
+      "subtype": "coupon",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998239,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f18-v1",
+      "variant_type": "standard",
+      "subtype": "paid_course",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.992959,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f18-v2",
+      "variant_type": "colloquial",
+      "subtype": "paid_course",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.984046,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f18-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "paid_course",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.985644,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f18-v4",
+      "variant_type": "mixed_language",
+      "subtype": "paid_course",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.989978,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f18-v5",
+      "variant_type": "contextual",
+      "subtype": "paid_course",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.976908,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f19-v1",
+      "variant_type": "standard",
+      "subtype": "email_marketing",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998141,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f19-v2",
+      "variant_type": "colloquial",
+      "subtype": "email_marketing",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998363,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f19-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "email_marketing",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998381,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f19-v4",
+      "variant_type": "mixed_language",
+      "subtype": "email_marketing",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998289,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f19-v5",
+      "variant_type": "contextual",
+      "subtype": "email_marketing",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998217,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f20-v1",
+      "variant_type": "standard",
+      "subtype": "group_buy",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998181,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 71
+    },
+    {
+      "id": "advertising-test-f20-v2",
+      "variant_type": "colloquial",
+      "subtype": "group_buy",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998191,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 71
+    },
+    {
+      "id": "advertising-test-f20-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "group_buy",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997931,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 71
+    },
+    {
+      "id": "advertising-test-f20-v4",
+      "variant_type": "mixed_language",
+      "subtype": "group_buy",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998187,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 71
+    },
+    {
+      "id": "advertising-test-f20-v5",
+      "variant_type": "contextual",
+      "subtype": "group_buy",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997844,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 17
+    },
+    {
+      "id": "advertising-test-f21-v1",
+      "variant_type": "standard",
+      "subtype": "brand_trial",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.996548,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f21-v2",
+      "variant_type": "colloquial",
+      "subtype": "brand_trial",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.996015,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f21-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "brand_trial",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997365,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f21-v4",
+      "variant_type": "mixed_language",
+      "subtype": "brand_trial",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.996506,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f21-v5",
+      "variant_type": "contextual",
+      "subtype": "brand_trial",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.99662,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f22-v1",
+      "variant_type": "standard",
+      "subtype": "poster_reward",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.982516,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f22-v2",
+      "variant_type": "colloquial",
+      "subtype": "poster_reward",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.977804,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f22-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "poster_reward",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.964888,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f22-v4",
+      "variant_type": "mixed_language",
+      "subtype": "poster_reward",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.914786,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f22-v5",
+      "variant_type": "contextual",
+      "subtype": "poster_reward",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.973074,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f23-v1",
+      "variant_type": "standard",
+      "subtype": "membership_upgrade",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998105,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f23-v2",
+      "variant_type": "colloquial",
+      "subtype": "membership_upgrade",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.998089,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f23-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "membership_upgrade",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997612,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f23-v4",
+      "variant_type": "mixed_language",
+      "subtype": "membership_upgrade",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997837,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f23-v5",
+      "variant_type": "contextual",
+      "subtype": "membership_upgrade",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997596,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f24-v1",
+      "variant_type": "standard",
+      "subtype": "price_quote",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997872,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f24-v2",
+      "variant_type": "colloquial",
+      "subtype": "price_quote",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.99708,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f24-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "price_quote",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997858,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f24-v4",
+      "variant_type": "mixed_language",
+      "subtype": "price_quote",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997803,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f24-v5",
+      "variant_type": "contextual",
+      "subtype": "price_quote",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997279,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f25-v1",
+      "variant_type": "standard",
+      "subtype": "affiliate",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997774,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f25-v2",
+      "variant_type": "colloquial",
+      "subtype": "affiliate",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997248,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f25-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "affiliate",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997719,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f25-v4",
+      "variant_type": "mixed_language",
+      "subtype": "affiliate",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997745,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f25-v5",
+      "variant_type": "contextual",
+      "subtype": "affiliate",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.996792,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "advertising-test-f26-v1",
+      "variant_type": "standard",
+      "subtype": "popup_registration",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997882,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f26-v2",
+      "variant_type": "colloquial",
+      "subtype": "popup_registration",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997385,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f26-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "popup_registration",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.99736,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f26-v4",
+      "variant_type": "mixed_language",
+      "subtype": "popup_registration",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997976,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "mask",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "advertising-test-f26-v5",
+      "variant_type": "contextual",
+      "subtype": "popup_registration",
+      "expected": "advertising",
+      "predicted": "advertising",
+      "confidence": 0.997765,
+      "evidence_label": "advertising",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "advertising"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sensitive_speech-test-f17-v1",
+      "variant_type": "standard",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.991204,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 76
+    },
+    {
+      "id": "sensitive_speech-test-f17-v2",
+      "variant_type": "colloquial",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.990485,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 76
+    },
+    {
+      "id": "sensitive_speech-test-f17-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.991721,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 76
+    },
+    {
+      "id": "sensitive_speech-test-f17-v4",
+      "variant_type": "mixed_language",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.990491,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 76
+    },
+    {
+      "id": "sensitive_speech-test-f17-v5",
+      "variant_type": "contextual",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.990101,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 18
+    },
+    {
+      "id": "sensitive_speech-test-f18-v1",
+      "variant_type": "standard",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.444825,
+      "evidence_label": "normal",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 60
+    },
+    {
+      "id": "sensitive_speech-test-f18-v2",
+      "variant_type": "colloquial",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "sexual",
+      "confidence": 0.452905,
+      "evidence_label": "normal",
+      "raw_correct": false,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "sensitive_speech-test-f18-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "normal",
+      "confidence": 0.503025,
+      "evidence_label": "normal",
+      "raw_correct": false,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "sensitive_speech-test-f18-v4",
+      "variant_type": "mixed_language",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "normal",
+      "confidence": 0.945252,
+      "evidence_label": "normal",
+      "raw_correct": false,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "sensitive_speech-test-f18-v5",
+      "variant_type": "contextual",
+      "subtype": "prompt_injection",
+      "expected": "sensitive_speech",
+      "predicted": "sexual",
+      "confidence": 0.408641,
+      "evidence_label": "normal",
+      "raw_correct": false,
+      "gateway_action": "pass",
+      "gateway_official_categories": [],
+      "gateway_risk_score": 0
+    },
+    {
+      "id": "sensitive_speech-test-f19-v1",
+      "variant_type": "standard",
+      "subtype": "privacy_leak",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.995979,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f19-v2",
+      "variant_type": "colloquial",
+      "subtype": "privacy_leak",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.994415,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f19-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "privacy_leak",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.995491,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f19-v4",
+      "variant_type": "mixed_language",
+      "subtype": "privacy_leak",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.994824,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f19-v5",
+      "variant_type": "contextual",
+      "subtype": "privacy_leak",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.992738,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sensitive_speech-test-f20-v1",
+      "variant_type": "standard",
+      "subtype": "document_forgery",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.996417,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f20-v2",
+      "variant_type": "colloquial",
+      "subtype": "document_forgery",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.996044,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f20-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "document_forgery",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.994002,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 69
+    },
+    {
+      "id": "sensitive_speech-test-f20-v4",
+      "variant_type": "mixed_language",
+      "subtype": "document_forgery",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.996489,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 69
+    },
+    {
+      "id": "sensitive_speech-test-f20-v5",
+      "variant_type": "contextual",
+      "subtype": "document_forgery",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.995944,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sensitive_speech-test-f21-v1",
+      "variant_type": "standard",
+      "subtype": "hate",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.977721,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 74
+    },
+    {
+      "id": "sensitive_speech-test-f21-v2",
+      "variant_type": "colloquial",
+      "subtype": "hate",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.954077,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 75
+    },
+    {
+      "id": "sensitive_speech-test-f21-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "hate",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.97173,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 74
+    },
+    {
+      "id": "sensitive_speech-test-f21-v4",
+      "variant_type": "mixed_language",
+      "subtype": "hate",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.974946,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 74
+    },
+    {
+      "id": "sensitive_speech-test-f21-v5",
+      "variant_type": "contextual",
+      "subtype": "hate",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.83716,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 18
+    },
+    {
+      "id": "sensitive_speech-test-f22-v1",
+      "variant_type": "standard",
+      "subtype": "self_harm",
+      "expected": "sensitive_speech",
+      "predicted": "violence",
+      "confidence": 0.918322,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "support",
+      "gateway_official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 34
+    },
+    {
+      "id": "sensitive_speech-test-f22-v2",
+      "variant_type": "colloquial",
+      "subtype": "self_harm",
+      "expected": "sensitive_speech",
+      "predicted": "violence",
+      "confidence": 0.946014,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "support",
+      "gateway_official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 34
+    },
+    {
+      "id": "sensitive_speech-test-f22-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "self_harm",
+      "expected": "sensitive_speech",
+      "predicted": "violence",
+      "confidence": 0.957166,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "support",
+      "gateway_official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 34
+    },
+    {
+      "id": "sensitive_speech-test-f22-v4",
+      "variant_type": "mixed_language",
+      "subtype": "self_harm",
+      "expected": "sensitive_speech",
+      "predicted": "violence",
+      "confidence": 0.882316,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "support",
+      "gateway_official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 34
+    },
+    {
+      "id": "sensitive_speech-test-f22-v5",
+      "variant_type": "contextual",
+      "subtype": "self_harm",
+      "expected": "sensitive_speech",
+      "predicted": "violence",
+      "confidence": 0.975983,
+      "evidence_label": "violence",
+      "raw_correct": false,
+      "gateway_action": "support",
+      "gateway_official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 8
+    },
+    {
+      "id": "sensitive_speech-test-f23-v1",
+      "variant_type": "standard",
+      "subtype": "misinformation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.992751,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f23-v2",
+      "variant_type": "colloquial",
+      "subtype": "misinformation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.991182,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f23-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "misinformation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.986821,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f23-v4",
+      "variant_type": "mixed_language",
+      "subtype": "misinformation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.993011,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f23-v5",
+      "variant_type": "contextual",
+      "subtype": "misinformation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.980356,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sensitive_speech-test-f24-v1",
+      "variant_type": "standard",
+      "subtype": "cyber_abuse",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.994946,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f24-v2",
+      "variant_type": "colloquial",
+      "subtype": "cyber_abuse",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.993936,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 59
+    },
+    {
+      "id": "sensitive_speech-test-f24-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "cyber_abuse",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.995714,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f24-v4",
+      "variant_type": "mixed_language",
+      "subtype": "cyber_abuse",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.993392,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f24-v5",
+      "variant_type": "contextual",
+      "subtype": "cyber_abuse",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.993747,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sensitive_speech-test-f25-v1",
+      "variant_type": "standard",
+      "subtype": "impersonation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.995797,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f25-v2",
+      "variant_type": "colloquial",
+      "subtype": "impersonation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.991444,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f25-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "impersonation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.993636,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f25-v4",
+      "variant_type": "mixed_language",
+      "subtype": "impersonation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.994473,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "review",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 58
+    },
+    {
+      "id": "sensitive_speech-test-f25-v5",
+      "variant_type": "contextual",
+      "subtype": "impersonation",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.990428,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 14
+    },
+    {
+      "id": "sensitive_speech-test-f26-v1",
+      "variant_type": "standard",
+      "subtype": "financial_evasion",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.996648,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 86
+    },
+    {
+      "id": "sensitive_speech-test-f26-v2",
+      "variant_type": "colloquial",
+      "subtype": "financial_evasion",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.996519,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 86
+    },
+    {
+      "id": "sensitive_speech-test-f26-v3",
+      "variant_type": "typo_obfuscated",
+      "subtype": "financial_evasion",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.996907,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 86
+    },
+    {
+      "id": "sensitive_speech-test-f26-v4",
+      "variant_type": "mixed_language",
+      "subtype": "financial_evasion",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.996396,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "block",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 86
+    },
+    {
+      "id": "sensitive_speech-test-f26-v5",
+      "variant_type": "contextual",
+      "subtype": "financial_evasion",
+      "expected": "sensitive_speech",
+      "predicted": "sensitive_speech",
+      "confidence": 0.995585,
+      "evidence_label": "sensitive_speech",
+      "raw_correct": true,
+      "gateway_action": "pass",
+      "gateway_official_categories": [
+        "sensitive_speech"
+      ],
+      "gateway_risk_score": 21
+    }
+  ]
+}

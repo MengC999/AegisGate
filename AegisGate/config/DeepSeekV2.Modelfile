@@ -1,0 +1,5 @@
+FROM deepseek-v2:16b
+PARAMETER num_ctx 4096
+PARAMETER num_predict 384
+PARAMETER num_thread 12
+PARAMETER temperature 0

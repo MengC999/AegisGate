@@ -1,0 +1,138 @@
+{
+  "format": "AegisGate minimal SBOM",
+  "version": "1.2",
+  "project": "AegisGate 3.1.0",
+  "acceptance": {
+    "recommended_python": "3.12",
+    "compatibility_target": "Python 3.10-3.13",
+    "validation_reference": "docs/testing.md"
+  },
+  "runtime_components": [
+    {
+      "name": "CPython",
+      "recommended_version": "3.12",
+      "scope": "required"
+    },
+    {
+      "name": "Web browser",
+      "minimum_version": "ES2020-compatible",
+      "scope": "demo-only",
+      "dependency_type": "system-provided"
+    }
+  ],
+  "third_party_packages": [
+    {
+      "name": "numpy",
+      "version": "2.2.6",
+      "scope": "runtime",
+      "license": "BSD-3-Clause",
+      "source": "https://github.com/numpy/numpy"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.23.2",
+      "scope": "runtime",
+      "license": "MIT",
+      "source": "https://github.com/microsoft/onnxruntime"
+    },
+    {
+      "name": "torch",
+      "version": "2.6.0",
+      "scope": "training-only",
+      "license": "BSD-3-Clause",
+      "source": "https://github.com/pytorch/pytorch"
+    },
+    {
+      "name": "transformers",
+      "version": "4.48.3",
+      "scope": "training-only",
+      "license": "Apache-2.0",
+      "source": "https://github.com/huggingface/transformers"
+    },
+    {
+      "name": "onnx",
+      "version": "1.17.0",
+      "scope": "training-only",
+      "license": "Apache-2.0",
+      "source": "https://github.com/onnx/onnx"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "0.36.2",
+      "scope": "training-only",
+      "license": "Apache-2.0",
+      "source": "https://github.com/huggingface/huggingface_hub"
+    },
+    {
+      "name": "lucide",
+      "version": "0.468.0",
+      "scope": "vendored-frontend",
+      "license": "ISC",
+      "source": "https://lucide.dev/",
+      "license_file": "web/assets/lucide-LICENSE.txt"
+    },
+    {
+      "name": "Chart.js",
+      "version": "4.4.7",
+      "scope": "vendored-frontend",
+      "license": "MIT",
+      "source": "https://www.chartjs.org/",
+      "license_file": "web/assets/chartjs-LICENSE.md"
+    }
+  ],
+  "model_assets": [
+    {
+      "name": "AegisGate official four rbt3 ONNX v2",
+      "base_model": "hfl/rbt3",
+      "revision": "0aa0527ff4170f29e1dfd3eb6ef60dc67e1bf75c",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/hfl/rbt3",
+      "runtime": "onnxruntime-cpu / CPUExecutionProvider",
+      "path": "models/official_four_onnx_v2",
+      "model_sha256": "023e11ba9bef71b5e285e0f720bef4ea72aeeaf5e136f935abdeadf5cfc86710",
+      "model_bytes": 154006588,
+      "distribution": "Separate models-v1 release asset; metadata retained in source"
+    },
+    {
+      "name": "AegisGate official four rbt3 ONNX v1",
+      "scope": "Historical model for regression tests",
+      "license": "Apache-2.0",
+      "path": "models/official_four_onnx_v1",
+      "distribution": "Separate models-v1 release asset; metadata retained in source"
+    }
+  ],
+  "datasets": [
+    {
+      "name": "AegisGate official four synthetic dataset v2",
+      "scope": "project-authored training, validation and model test",
+      "license": "CC-BY-4.0",
+      "path": "data/semantic_classifier_v2"
+    },
+    {
+      "name": "AegisGate gateway frozen holdout v1",
+      "scope": "project-authored end-to-end evaluation only",
+      "license": "CC-BY-4.0",
+      "path": "data/e2e_holdout_v1",
+      "sha256": "51c923b2394b814295031020219b33d7b72d55a0f4c68fe9ca18951aefa4d4f0"
+    },
+    {
+      "name": "AegisGate official four synthetic dataset v1",
+      "scope": "retained historical training asset",
+      "license": "CC-BY-4.0",
+      "path": "data/semantic_classifier_v1"
+    }
+  ],
+  "external_services": [
+    {
+      "name": "DeepSeek API",
+      "scope": "optional explicit provider; key only from DEEPSEEK_API_KEY process environment",
+      "required_for_local_classifier": false
+    },
+    {
+      "name": "OpenAI-compatible endpoint",
+      "scope": "optional explicit provider",
+      "required_for_local_classifier": false
+    }
+  ],
+  "notes": "Default provider is mock. Install ONNX weights separately with scripts/download_models.py; normal startup does not download them. Once installed, the local classifier runs offline on CPU. Runtime data, private reports, photographs and optional DeepSeek/Ollama installations are excluded from the source archive."
+}

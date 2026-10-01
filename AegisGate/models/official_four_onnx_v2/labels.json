@@ -1,0 +1,32 @@
+{
+  "labels": [
+    "normal",
+    "sexual",
+    "violence",
+    "advertising",
+    "sensitive_speech"
+  ],
+  "official_mapping": {
+    "normal": {
+      "official_category": "正常",
+      "engine_category": null
+    },
+    "sexual": {
+      "official_category": "色情",
+      "engine_category": "sexual"
+    },
+    "violence": {
+      "official_category": "暴力",
+      "engine_category": "violence"
+    },
+    "advertising": {
+      "official_category": "广告",
+      "engine_category": "fraud"
+    },
+    "sensitive_speech": {
+      "official_category": "敏感话术",
+      "engine_category": "sensitive_speech"
+    }
+  },
+  "sensitive_speech_definition": "提示注入、隐私泄露、违法实施、仇恨歧视、自伤诱导和有害虚假信息等需要拦截或复核的话术。"
+}

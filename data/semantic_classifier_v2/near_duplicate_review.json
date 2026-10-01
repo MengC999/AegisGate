@@ -1,0 +1,33 @@
+{
+  "dataset_id": "aegisgate-official-four-v2",
+  "dataset_version": "2.0.0",
+  "reviewed_at_utc": "2026-08-17T17:51:48Z",
+  "review_method": "逐对人工复核语义锚点、family_id、source_batch 与变体外层模板",
+  "reviewer_role": "阶段 D 独立静态审计",
+  "summary": {
+    "candidates": 18,
+    "accepted_distinct": 18,
+    "rejected_as_leakage": 0
+  },
+  "common_reason": "相似度来自 mixed_language/contextual 外层模板；语义锚点不同，且 family_id 与 source_batch 未跨集合复用。",
+  "items": [
+    {"left": "violence-validation-f16-v4", "right": "violence-test-f22-v4", "anchor_trigram_jaccard": 0.1053, "text_sequence_ratio": 0.8101, "decision": "accepted_distinct"},
+    {"left": "sexual-train-f08-v4", "right": "sexual-validation-f16-v4", "anchor_trigram_jaccard": 0.1176, "text_sequence_ratio": 0.8052, "decision": "accepted_distinct"},
+    {"left": "violence-train-f12-v4", "right": "violence-validation-f14-v4", "anchor_trigram_jaccard": 0.1176, "text_sequence_ratio": 0.8052, "decision": "accepted_distinct"},
+    {"left": "sexual-train-f11-v4", "right": "sexual-test-f17-v4", "anchor_trigram_jaccard": 0.0435, "text_sequence_ratio": 0.8049, "decision": "accepted_distinct"},
+    {"left": "sexual-train-f01-v4", "right": "sexual-test-f22-v4", "anchor_trigram_jaccard": 0.0476, "text_sequence_ratio": 0.8, "decision": "accepted_distinct"},
+    {"left": "sexual-test-f24-v4", "right": "sensitive_speech-validation-f15-v4", "anchor_trigram_jaccard": 0.0, "text_sequence_ratio": 0.8, "decision": "accepted_distinct"},
+    {"left": "violence-train-f04-v4", "right": "violence-test-f22-v4", "anchor_trigram_jaccard": 0.0, "text_sequence_ratio": 0.8, "decision": "accepted_distinct"},
+    {"left": "sexual-train-f04-v4", "right": "sexual-test-f20-v4", "anchor_trigram_jaccard": 0.1905, "text_sequence_ratio": 0.7952, "decision": "accepted_distinct"},
+    {"left": "sensitive_speech-train-f11-v4", "right": "sensitive_speech-test-f24-v4", "anchor_trigram_jaccard": 0.087, "text_sequence_ratio": 0.7952, "decision": "accepted_distinct"},
+    {"left": "violence-validation-f16-v5", "right": "violence-test-f22-v5", "anchor_trigram_jaccard": 0.1053, "text_sequence_ratio": 0.7887, "decision": "accepted_distinct"},
+    {"left": "sexual-train-f07-v4", "right": "advertising-validation-f13-v4", "anchor_trigram_jaccard": 0.05, "text_sequence_ratio": 0.7848, "decision": "accepted_distinct"},
+    {"left": "violence-train-f05-v4", "right": "violence-validation-f16-v4", "anchor_trigram_jaccard": 0.0, "text_sequence_ratio": 0.7848, "decision": "accepted_distinct"},
+    {"left": "advertising-train-f09-v4", "right": "advertising-test-f19-v4", "anchor_trigram_jaccard": 0.0, "text_sequence_ratio": 0.7848, "decision": "accepted_distinct"},
+    {"left": "sexual-train-f11-v5", "right": "sexual-test-f17-v5", "anchor_trigram_jaccard": 0.0435, "text_sequence_ratio": 0.7838, "decision": "accepted_distinct"},
+    {"left": "normal-train-f03-v4", "right": "normal-test-f20-v4", "anchor_trigram_jaccard": 0.0, "text_sequence_ratio": 0.7826, "decision": "accepted_distinct"},
+    {"left": "sexual-train-f08-v5", "right": "sexual-validation-f16-v5", "anchor_trigram_jaccard": 0.1176, "text_sequence_ratio": 0.7826, "decision": "accepted_distinct"},
+    {"left": "violence-train-f12-v5", "right": "violence-validation-f14-v5", "anchor_trigram_jaccard": 0.1176, "text_sequence_ratio": 0.7826, "decision": "accepted_distinct"},
+    {"left": "violence-train-f11-v4", "right": "violence-test-f23-v4", "anchor_trigram_jaccard": 0.0909, "text_sequence_ratio": 0.7805, "decision": "accepted_distinct"}
+  ]
+}

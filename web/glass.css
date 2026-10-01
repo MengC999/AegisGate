@@ -1,0 +1,270 @@
+/* Shared reference material: transmitted scenery, soft blur, a quiet rim. */
+:root {
+  --glass-text: #ffffff;
+  --glass-secondary: #cdd1d6;
+  --glass-hairline: #ffffff26;
+  --glass-control: #10151b18;
+  --glass-control-hover: #ffffff0c;
+  --glass-selected: #ffffff16;
+  --glass-rim: #ffffff38;
+  --glass-tint: #18212b38;
+  --glass-radius: 8px;
+  --ink: var(--glass-text);
+  --muted: var(--glass-secondary);
+  --text-on-light: var(--glass-text);
+  --text-on-dark: var(--glass-text);
+  --muted-on-light: var(--glass-secondary);
+  --muted-on-dark: var(--glass-secondary);
+  --line: var(--glass-hairline);
+  --surface: #ffffff06;
+  --surface-soft: #ffffff09;
+  color-scheme: dark;
+}
+
+/* Only the backdrop is rasterized; foreground DOM stays at native resolution. */
+#glassShaderCanvas { display: none; pointer-events: none; }
+
+:root .glass-surface,
+#enterpriseResourcePanel.glass-surface,
+#opsTablePanel.glass-surface {
+  color: var(--glass-text);
+  border: 1px solid var(--glass-hairline);
+  border-top-color: var(--glass-rim);
+  border-radius: var(--glass-radius);
+  background-color: var(--glass-tint);
+  box-shadow: inset 0 1px 0 #ffffff08, 0 6px 24px #0000000f;
+  -webkit-backdrop-filter: blur(30px) saturate(.72) brightness(.82);
+  backdrop-filter: blur(30px) saturate(.72) brightness(.82);
+}
+
+html.glass-shader-ready .glass-surface,
+html.glass-shader-ready #enterpriseResourcePanel.glass-surface,
+html.glass-shader-ready #opsTablePanel.glass-surface {
+  isolation: isolate;
+  background-image: linear-gradient(130deg, #ffffff09, #ffffff00 48%, #00000005), var(--glass-backdrop);
+  background-size: 100% 100%, var(--glass-viewport);
+  background-position: left top, center top;
+  background-attachment: scroll, fixed;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+
+/* The material is already blurred. Never filter a foreground subtree. */
+html.glass-shader-ready .glass-surface,
+html.glass-shader-ready .glass-surface * {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.glass-surface :is(h2, h3) { font-weight: 600; }
+
+.app-sidebar.glass-surface { border-width: 0 1px 0 0; border-radius: 0; box-shadow: none; }
+.topbar.glass-surface { border-width: 0 0 1px; border-radius: 0; box-shadow: 0 1px 0 #00000008; }
+.runtime-summary.glass-surface { box-shadow: none; }
+.runtime-summary div { background: transparent; border: 0; box-shadow: none; }
+.runtime-summary div + div { border-left: 1px solid var(--glass-hairline); }
+
+/* Headings, filters and results form one pane, including the report archive. */
+#enterpriseResourcePanel.glass-surface { padding: 22px; }
+.glass-surface :is(.ops-table-wrap, .batch-table-wrap, .enterprise-table-wrap) {
+  background: transparent; box-shadow: none; border-color: var(--glass-hairline);
+}
+.enterprise-kpis.glass-surface > div { background: transparent; box-shadow: none; }
+.enterprise-module-nav.glass-surface { padding: 5px 12px; gap: 4px 18px; }
+.home-quick-access.glass-surface { margin-top: 20px; padding: 14px 18px; }
+.enterprise-empty { min-height: 210px; padding: 24px; }
+.enterprise-empty strong { font-size: 14px; }
+.enterprise-empty p { font-size: 12px; line-height: 1.7; }
+.glass-surface :is(.audit-action-grid > div, .audit-evidence-node, .enterprise-detail-grid > div,
+  .score-block, .threshold-strip, .graph-node, .keyword-item, .audit-chain-summary > div,
+  .audit-v2-summary > div, .batch-kpis > div) {
+  background: #ffffff06; border-color: var(--glass-hairline); box-shadow: none;
+}
+
+.home-kpi.glass-surface { transition: border-color .18s ease, box-shadow .18s ease; }
+.home-kpi.glass-surface:hover { border-color: #ffffff38; box-shadow: inset 0 1px 0 #ffffff12, 0 8px 24px #00000018; }
+.kpi-icon { border-radius: 6px; }
+.home-todo-row { min-width: 0; }
+.todo-meta { flex-wrap: wrap; }
+.metric::before { width: 14px; height: 2px; }
+.metric + .metric { border-left: 0; }
+.metric { border-color: var(--glass-hairline); }
+
+/* One glass surface per tool; internal data groups use hairline separators. */
+.official-grid { border: 0; border-radius: 0; background: transparent; }
+.official-item { position: relative; border: 0; border-right: 1px solid var(--glass-hairline); padding-top: 12px; }
+.official-item > span { display: flex; align-items: center; gap: 7px; color: var(--glass-secondary); font-weight: 500; }
+.official-item > span::before { content: ""; width: 5px; height: 5px; flex: 0 0 5px; border-radius: 50%; background: var(--blue); }
+.official-item.sexual > span::before { background: var(--violet); }
+.official-item.violence > span::before { background: var(--red); }
+.official-item.advertising > span::before { background: var(--amber); }
+.action-summary { margin-top: 14px; padding-top: 8px; border-top: 1px solid var(--glass-hairline); }
+.action-summary div { border-color: var(--glass-hairline); }
+.action-summary span { color: var(--glass-secondary); }
+.decision-meta, .decision-routing { border: 0; }
+.decision-meta div, .decision-routing div, .system-details div { background: transparent; box-shadow: none; border: 0; border-radius: 0; }
+
+.glass-surface :is(input:where(:not([type="checkbox"]):not([type="radio"]):not([type="file"])), textarea, select) {
+  color: var(--glass-text);
+  background: var(--glass-control);
+  border: 1px solid var(--glass-hairline);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 2px #00000008;
+}
+.glass-surface :is(input, textarea)::placeholder { color: var(--glass-secondary); opacity: 1; }
+.glass-surface :is(input, textarea, select):focus { border-color: #ffffff66; box-shadow: 0 0 0 3px #ffffff0c; }
+.glass-surface .nav-search input { background: transparent; border: 0; box-shadow: none; }
+.glass-surface .nav-search { background: var(--glass-control); border-color: var(--glass-hairline); }
+.glass-surface :is(.segmented, .mini-segmented, .category-tabs) { background: var(--glass-control); border: 1px solid var(--glass-hairline); padding: 4px; gap: 4px; }
+.glass-surface :is(.segment, .mini-segment, .category-tab) { color: var(--glass-secondary); font-weight: 500; }
+.glass-surface :is(.segment.active, .mini-segment.active, .category-tab.active) { color: var(--glass-text); background: var(--glass-selected); box-shadow: inset 0 1px 0 var(--glass-rim), 0 1px 3px #00000012; }
+.glass-surface :is(.secondary-button, .quick-chip, .enterprise-row-actions button) { color: var(--glass-secondary); background: #ffffff05; border-color: var(--glass-hairline); font-weight: 500; }
+.glass-surface :is(.secondary-button, .quick-chip, .enterprise-row-actions button):hover { color: var(--glass-text); background: var(--glass-control-hover); border-color: var(--glass-rim); }
+.primary-button, .glass-surface .primary-button { color: var(--glass-text); background: #ffffff14; border-color: #ffffff38; box-shadow: inset 0 1px 0 #ffffff0c; font-weight: 600; }
+.primary-button:hover, .glass-surface .primary-button:hover { background: #ffffff20; border-color: #ffffff55; }
+.glass-surface .decision-legend { padding: 10px 0; border-color: var(--glass-hairline); }
+.glass-surface .decision-legend span { background: transparent; padding-inline: 0; font-weight: 500; }
+.glass-surface .decision-legend { gap: 16px; }
+.glass-surface .placeholder-mark { width: 44px; height: 44px; background: rgba(var(--accent-rgb), .06); border-color: rgba(var(--accent-rgb), .24); color: var(--accent); }
+.glass-surface .result-placeholder { gap: 12px; }
+
+.view-tab.active, .sidebar-shortcuts button.active { box-shadow: inset 0 0 0 1px #ffffff24; background: #ffffff12; }
+.view-tab.active::after { background: var(--glass-text); }
+.enterprise-module-nav .enterprise-module.active { color: var(--glass-text); border-bottom-color: #ffffffaa; }
+.view-tab:focus:not(:focus-visible) { outline: none; }
+
+@media (max-width: 760px) {
+  .official-item:nth-child(2) { border-right: 0; }
+  .official-item:nth-child(n + 3) { border-top: 1px solid var(--glass-hairline); }
+}
+
+@media (min-width: 701px) and (max-width: 950px) {
+  .home-todo-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.glass-appearance { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; }
+.glass-appearance > span { font-size: 11px; color: var(--muted); }
+.glass-theme-options { display: flex; gap: 3px; padding: 3px; border: 1px solid var(--line); border-radius: 6px; }
+.glass-theme-options button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 30px; min-width: 76px; padding: 0 10px; color: var(--muted); border: 0; border-radius: 3px; background: transparent; font-size: 11px; }
+.glass-theme-options svg { width: 14px; height: 14px; }
+.glass-theme-options button[aria-pressed="true"] { color: var(--glass-text); background: var(--glass-selected); }
+
+/* A small type increase keeps dense console content readable. */
+.dashboard-widget .widget-heading h2 { font-size: 15px; }
+.testing-pane h2, .result-pane h2, .tool-panel h2, .official-band h2 { font-size: 16px; }
+.glass-surface :is(.todo-title, .field-label, .text-field > span) { font-size: 12px; }
+.home-kpi > div > span, .metric > span, .activity-row strong { font-size: 12px; }
+.home-kpi small, .widget-heading p, .widget-label, .todo-meta, .activity-row p { font-size: 11px; }
+.runtime-summary dt { font-size: 11px; }
+.runtime-summary dd { font-size: 13px; }
+.home-kpi strong { font-size: 28px; }
+.metric strong, .official-item strong { font-size: 26px; }
+.glass-surface textarea { font-size: 14px; line-height: 1.7; }
+.glass-surface .result-placeholder strong { font-size: 15px; }
+.glass-surface .result-placeholder > span { font-size: 12px; }
+.ops-table, .batch-table { font-size: 11px; }
+.ops-table th, .batch-table th { font-size: 10px; }
+.home-kpi > div > span, .home-kpi small { white-space: normal; overflow-wrap: anywhere; }
+
+@media (max-width: 950px) {
+  .home-kpi strong { font-size: 26px; }
+}
+
+/* Light glass changes transmission, never the requested two-level white ink. */
+html[data-glass-theme="light"] { --glass-tint: #313b4430; }
+
+/* Level two: supporting labels, explanations, metadata and inactive controls. */
+:root body :is(p, small, label, dt, th, figcaption,
+  .brand span, .sidebar-caption, .sidebar-bottom > div > span, .breadcrumb-root,
+  .breadcrumb-arrow, .icon-button, .home-eyebrow, .section-kicker, .home-status-line,
+  .console-footer, .system-meta, .widget-label, .chart-legend, .chart-footnote,
+  .todo-meta, .todo-deadline, .risk-legend > div, .donut-center > span,
+  .completion-details span, .home-kpi > div > span, .metric > span, .official-item > span,
+  .official-item em, .action-summary span, .system-card > span, .system-card > em,
+  .ops-kpi > span, .ops-kpi > small, .enterprise-kpis span, .batch-kpis span, .audit-kpis span,
+  .field-label, .text-field > span, .quick-label, .panel-version, .stats-date,
+  .widget-empty, .result-placeholder > span, .batch-empty, .enterprise-state,
+  .enterprise-todo-type, .enterprise-todo-main span, .enterprise-risk-item span,
+  .enterprise-setting-item span, .enterprise-setting-item code, .ops-activity-item span,
+  .audit-chain-summary span, .audit-chain-summary code, .audit-v2-summary span,
+  .audit-v2-summary code, .audit-v2-row span, .audit-v2-row em, .enterprise-overdue,
+  .decision-meta span, .decision-routing span, .graph-node span, .graph-title,
+  .score-line, .risk-scale, .signal-item span, .evidence-item span,
+  .segment, .mini-segment, .category-tab, .enterprise-module, .ops-nav,
+  .secondary-button, .quick-chip, .widget-bottom-link, .glass-theme-options button,
+  .background-option, .enterprise-row-actions button, .enterprise-config-links button) {
+  color: var(--glass-secondary);
+  text-shadow: none;
+}
+
+/* Level one: headings, values, navigation, entered content and primary actions. */
+:root body :is(h1, h2, h3, h4, strong, dd, td, input, textarea, select,
+  .brand, .view-tab, .sidebar-shortcuts button, .todo-title, .text-button, .primary-button,
+  .home-quick-access button, .workspace-avatar, .topbar-avatar, .count-badge,
+  .sidebar-shortcuts b, .gateway-state, .severity-tag, .enterprise-todo-severity,
+  .ops-severity, .action-badge, .batch-action-cell, .decision-legend span,
+  .pass, .mask, .review, .block, .support, .backend-status, .backend-step-index,
+  .block-title, .trace-item em, .keyword-item > span, .chip, .official-chip,
+  .safe-output pre, .import-result, .background-error, .toast) {
+  color: var(--glass-text);
+  text-shadow: none;
+}
+:root body :is(.segment, .mini-segment, .category-tab, .enterprise-module, .ops-nav).active,
+:root body :is(.glass-theme-options button, .background-option)[aria-pressed="true"],
+:root body :is(.secondary-button, .quick-chip, .widget-bottom-link, .icon-button,
+  .enterprise-row-actions button, .enterprise-config-links button):hover { color: var(--glass-text); }
+:root body :is(.home-quick-access button > svg, .todo-type-icon, .nav-search label) { color: var(--glass-secondary); }
+:root body :is(.background-option[aria-pressed="true"], .secondary-button:hover,
+  .quick-chip:hover, .enterprise-row-actions button:hover) { border-color: var(--glass-rim); }
+:root body :is(.segment.active, .mini-segment.active, .category-tab.active, .ops-nav.active,
+  .icon-button:hover, .nav-search-results button:hover) { background: var(--glass-selected); }
+:root body :is(.workspace-avatar, .topbar-avatar, .count-badge, .sidebar-shortcuts b) {
+  background: #ffffff10; border-color: var(--glass-hairline);
+}
+
+/* Semantic status copy stays within the same two ink levels; bars and icons
+   retain their restrained accents for quick scanning. */
+:root body :is(.glass-surface em, .glass-surface code, .glass-surface .severity-tag,
+  .glass-surface .action-badge, .glass-surface .batch-action-cell,
+  .glass-surface .ops-severity, .glass-surface .backend-status,
+  .glass-surface .enterprise-overdue, .glass-surface .enterprise-trend-legend,
+  .glass-surface .panel-version, .glass-surface .batch-badge > span,
+  .glass-surface .threshold-strip > span, .glass-surface .keyword-list-heading > span,
+  .glass-surface .empty-stat, .glass-surface .audit-evidence-node > span,
+  .glass-surface .keyword-remove, .glass-surface .remove-turn,
+  .glass-surface .ops-safety-note > span) { color: var(--glass-secondary); }
+.glass-surface .placeholder-mark { color: var(--glass-text); }
+.glass-surface select option { color: var(--glass-text); background: #343b42; }
+button:focus-visible, a:focus-visible { outline-color: var(--glass-secondary); }
+
+/* Nested panes share the material instead of repeatedly blurring the backdrop. */
+.glass-surface :is(.view-tabs, .metric, .official-item, .runtime-summary > div,
+  .enterprise-kpis > div, .decision-meta > div, .decision-routing > div,
+  .system-details, .system-details > div, .backend-trace, .trace-block,
+  .evidence-block, .temporal-block, .safe-output, .enterprise-detail-body,
+  .enterprise-report-preview) { background: transparent; box-shadow: none; }
+.glass-surface :is(.ops-table th, .batch-table th) { background: #ffffff05; }
+.glass-surface :is(.ops-table tr:hover td, .batch-table tr:hover td) { background: #ffffff08; }
+.glass-surface :is(.ops-safety-note, .audit-v2-summary, .enterprise-detail-grid) {
+  background: #ffffff05; border-color: var(--glass-hairline);
+}
+.glass-surface :is(.enterprise-resource-heading h3, .enterprise-detail-section h3) { font-size: 16px; }
+.glass-surface :is(.enterprise-resource-heading p, .ops-toolbar label,
+  .enterprise-toolbar label, .enterprise-todo-main strong) { font-size: 12px; }
+.glass-surface :is(.enterprise-todo-main span, .enterprise-risk-item span,
+  .enterprise-setting-item span, .ops-activity-item span) { font-size: 11px; }
+
+@media (max-width: 700px) {
+  #enterpriseResourcePanel.glass-surface { padding: 16px; }
+  .enterprise-module-nav.glass-surface { gap: 4px 14px; }
+  .enterprise-empty { min-height: 180px; padding: 18px 10px; }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root:not(.glass-shader-ready) .glass-surface { background-color: #30363fee; }
+}
+
+@media (forced-colors: active) {
+  :root { --glass-text: CanvasText; --glass-secondary: CanvasText; --glass-hairline: CanvasText; }
+  html.glass-shader-ready .glass-surface { background-image: none; background-color: Canvas; }
+}

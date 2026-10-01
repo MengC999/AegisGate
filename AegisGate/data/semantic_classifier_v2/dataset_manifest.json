@@ -1,0 +1,211 @@
+{
+  "dataset_id": "aegisgate-official-four-v2",
+  "dataset_version": "2.0.0",
+  "labels": [
+    "normal",
+    "sexual",
+    "violence",
+    "advertising",
+    "sensitive_speech"
+  ],
+  "official_mapping": {
+    "sexual": "色情",
+    "violence": "暴力",
+    "advertising": "广告",
+    "sensitive_speech": "敏感话术"
+  },
+  "source": "AegisGate 项目组自建合成与防御性改写文本 v2",
+  "license": "CC-BY-4.0",
+  "legacy_policy": "v1 的测试错误已经被分析，因此 v1 全量仅进入 v2 train，不作为 v2 最终测试依据。",
+  "holdout_policy": "v2 test 在训练前生成并由 manifest SHA-256 封存；训练脚本禁止读取 test。",
+  "privacy": "全部为项目组自建合成文本；不采集真实对话；执行手机号、邮箱和身份证格式拒绝检查。",
+  "split_strategy": {
+    "method": "family_id 与 source_batch 分组隔离",
+    "new_families_per_label": {
+      "train": 12,
+      "validation": 4,
+      "test": 10
+    },
+    "variants_per_new_family": 5
+  },
+  "deduplication": {
+    "fingerprint": "NFKC + lowercase + alphanumeric/CJK",
+    "automatic_reject": "cross-split semantic-anchor trigram Jaccard >= 0.70 or normalized text SequenceMatcher >= 0.90",
+    "manual_review_band": "anchor >= 0.50 or text >= 0.78",
+    "exact_duplicates": 0,
+    "family_cross_split_leaks": 0,
+    "source_batch_cross_split_leaks": 0,
+    "cross_split_near_duplicate_rejections": 0,
+    "manual_review_candidates": 18,
+    "manual_review_top20": [
+      {
+        "left": "violence-validation-f16-v4",
+        "right": "violence-test-f22-v4",
+        "anchor_trigram_jaccard": 0.1053,
+        "text_sequence_ratio": 0.8101
+      },
+      {
+        "left": "sexual-train-f08-v4",
+        "right": "sexual-validation-f16-v4",
+        "anchor_trigram_jaccard": 0.1176,
+        "text_sequence_ratio": 0.8052
+      },
+      {
+        "left": "violence-train-f12-v4",
+        "right": "violence-validation-f14-v4",
+        "anchor_trigram_jaccard": 0.1176,
+        "text_sequence_ratio": 0.8052
+      },
+      {
+        "left": "sexual-train-f11-v4",
+        "right": "sexual-test-f17-v4",
+        "anchor_trigram_jaccard": 0.0435,
+        "text_sequence_ratio": 0.8049
+      },
+      {
+        "left": "sexual-train-f01-v4",
+        "right": "sexual-test-f22-v4",
+        "anchor_trigram_jaccard": 0.0476,
+        "text_sequence_ratio": 0.8
+      },
+      {
+        "left": "sexual-test-f24-v4",
+        "right": "sensitive_speech-validation-f15-v4",
+        "anchor_trigram_jaccard": 0.0,
+        "text_sequence_ratio": 0.8
+      },
+      {
+        "left": "violence-train-f04-v4",
+        "right": "violence-test-f22-v4",
+        "anchor_trigram_jaccard": 0.0,
+        "text_sequence_ratio": 0.8
+      },
+      {
+        "left": "sexual-train-f04-v4",
+        "right": "sexual-test-f20-v4",
+        "anchor_trigram_jaccard": 0.1905,
+        "text_sequence_ratio": 0.7952
+      },
+      {
+        "left": "sensitive_speech-train-f11-v4",
+        "right": "sensitive_speech-test-f24-v4",
+        "anchor_trigram_jaccard": 0.087,
+        "text_sequence_ratio": 0.7952
+      },
+      {
+        "left": "violence-validation-f16-v5",
+        "right": "violence-test-f22-v5",
+        "anchor_trigram_jaccard": 0.1053,
+        "text_sequence_ratio": 0.7887
+      },
+      {
+        "left": "sexual-train-f07-v4",
+        "right": "advertising-validation-f13-v4",
+        "anchor_trigram_jaccard": 0.05,
+        "text_sequence_ratio": 0.7848
+      },
+      {
+        "left": "violence-train-f05-v4",
+        "right": "violence-validation-f16-v4",
+        "anchor_trigram_jaccard": 0.0,
+        "text_sequence_ratio": 0.7848
+      },
+      {
+        "left": "advertising-train-f09-v4",
+        "right": "advertising-test-f19-v4",
+        "anchor_trigram_jaccard": 0.0,
+        "text_sequence_ratio": 0.7848
+      },
+      {
+        "left": "sexual-train-f11-v5",
+        "right": "sexual-test-f17-v5",
+        "anchor_trigram_jaccard": 0.0435,
+        "text_sequence_ratio": 0.7838
+      },
+      {
+        "left": "normal-train-f03-v4",
+        "right": "normal-test-f20-v4",
+        "anchor_trigram_jaccard": 0.0,
+        "text_sequence_ratio": 0.7826
+      },
+      {
+        "left": "sexual-train-f08-v5",
+        "right": "sexual-validation-f16-v5",
+        "anchor_trigram_jaccard": 0.1176,
+        "text_sequence_ratio": 0.7826
+      },
+      {
+        "left": "violence-train-f12-v5",
+        "right": "violence-validation-f14-v5",
+        "anchor_trigram_jaccard": 0.1176,
+        "text_sequence_ratio": 0.7826
+      },
+      {
+        "left": "violence-train-f11-v4",
+        "right": "violence-test-f23-v4",
+        "anchor_trigram_jaccard": 0.0909,
+        "text_sequence_ratio": 0.7805
+      }
+    ],
+    "pii_pattern_hits": 0
+  },
+  "files": {
+    "train.jsonl": {
+      "rows": 500,
+      "sha256": "157ff944f77ca993556474132fbe5d33e75bcc05f8b3c92e6359916d700b0e9f",
+      "labels": {
+        "normal": 100,
+        "sexual": 100,
+        "violence": 100,
+        "advertising": 100,
+        "sensitive_speech": 100
+      },
+      "variant_types": {
+        "legacy_v1": 200,
+        "standard": 60,
+        "colloquial": 60,
+        "typo_obfuscated": 60,
+        "mixed_language": 60,
+        "contextual": 60
+      }
+    },
+    "validation.jsonl": {
+      "rows": 100,
+      "sha256": "dfa30f072aa0b2a33096b14624e9b069af7acd00c6b920ed451d646c9ed549e5",
+      "labels": {
+        "normal": 20,
+        "sexual": 20,
+        "violence": 20,
+        "advertising": 20,
+        "sensitive_speech": 20
+      },
+      "variant_types": {
+        "legacy_v1": 0,
+        "standard": 20,
+        "colloquial": 20,
+        "typo_obfuscated": 20,
+        "mixed_language": 20,
+        "contextual": 20
+      }
+    },
+    "test.jsonl": {
+      "rows": 250,
+      "sha256": "a4effcb231e0dc6e1a4244bcff7faf37c9e4237e3c735af5f1953109cdc6e3cd",
+      "labels": {
+        "normal": 50,
+        "sexual": 50,
+        "violence": 50,
+        "advertising": 50,
+        "sensitive_speech": 50
+      },
+      "variant_types": {
+        "legacy_v1": 0,
+        "standard": 50,
+        "colloquial": 50,
+        "typo_obfuscated": 50,
+        "mixed_language": 50,
+        "contextual": 50
+      }
+    }
+  }
+}

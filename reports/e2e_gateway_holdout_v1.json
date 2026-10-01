@@ -1,0 +1,3110 @@
+{
+  "evaluated_at_utc": "2026-08-18T08:22:56.940929+00:00",
+  "evaluation_purpose": "frozen_final_holdout",
+  "independent_holdout": true,
+  "tuning_notice": "本报告只记录冻结集结果；该数据集未用于阈值、规则或融合调参。",
+  "dataset": {
+    "dataset_id": "aegisgate-e2e-holdout-v1",
+    "dataset_version": "1.0.0",
+    "test_samples": 200,
+    "test_data_sha256": "51c923b2394b814295031020219b33d7b72d55a0f4c68fe9ca18951aefa4d4f0",
+    "source": "AegisGate 项目组自建合成文本 e2e_holdout_v1",
+    "license": "CC-BY-4.0",
+    "label_counts": {
+      "advertising": 25,
+      "normal": 100,
+      "sensitive_speech": 25,
+      "sexual": 25,
+      "violence": 25
+    }
+  },
+  "model": {
+    "status": {
+      "model_id": "aegisgate-official-four-rbt3-v2",
+      "status": "ready",
+      "reason": "verified",
+      "backend": "onnxruntime-cpu"
+    },
+    "backend": "onnxruntime-cpu",
+    "execution_provider": "CPUExecutionProvider"
+  },
+  "classification": {
+    "samples": 200,
+    "accuracy": 0.945,
+    "macro_f1": 0.946517,
+    "per_class": {
+      "normal": {
+        "precision": 0.989011,
+        "recall": 0.9,
+        "f1": 0.942408,
+        "support": 100
+      },
+      "sexual": {
+        "precision": 0.862069,
+        "recall": 1.0,
+        "f1": 0.925926,
+        "support": 25
+      },
+      "violence": {
+        "precision": 0.923077,
+        "recall": 0.96,
+        "f1": 0.941176,
+        "support": 25
+      },
+      "advertising": {
+        "precision": 0.925926,
+        "recall": 1.0,
+        "f1": 0.961538,
+        "support": 25
+      },
+      "sensitive_speech": {
+        "precision": 0.925926,
+        "recall": 1.0,
+        "f1": 0.961538,
+        "support": 25
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "normal",
+        "sexual",
+        "violence",
+        "advertising",
+        "sensitive_speech"
+      ],
+      "rows_actual_columns_predicted": [
+        [
+          90,
+          4,
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          25,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          24,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          25,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          25
+        ]
+      ]
+    }
+  },
+  "binary": {
+    "samples": 200,
+    "precision": 0.980198,
+    "recall": 0.99,
+    "f1": 0.985075,
+    "violation_interception_rate": 0.99,
+    "normal_false_positive_rate": 0.02,
+    "confusion": {
+      "tp": 99,
+      "fp": 2,
+      "fn": 1,
+      "tn": 98
+    }
+  },
+  "direction_metrics": {
+    "input": {
+      "classification": {
+        "samples": 160,
+        "accuracy": 0.94375,
+        "macro_f1": 0.945555,
+        "per_class": {
+          "normal": {
+            "precision": 1.0,
+            "recall": 0.8875,
+            "f1": 0.940397,
+            "support": 80
+          },
+          "sexual": {
+            "precision": 0.869565,
+            "recall": 1.0,
+            "f1": 0.930233,
+            "support": 20
+          },
+          "violence": {
+            "precision": 0.909091,
+            "recall": 1.0,
+            "f1": 0.952381,
+            "support": 20
+          },
+          "advertising": {
+            "precision": 0.909091,
+            "recall": 1.0,
+            "f1": 0.952381,
+            "support": 20
+          },
+          "sensitive_speech": {
+            "precision": 0.909091,
+            "recall": 1.0,
+            "f1": 0.952381,
+            "support": 20
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "sexual",
+            "violence",
+            "advertising",
+            "sensitive_speech"
+          ],
+          "rows_actual_columns_predicted": [
+            [
+              71,
+              3,
+              2,
+              2,
+              2
+            ],
+            [
+              0,
+              20,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              20,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              20,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              20
+            ]
+          ]
+        }
+      },
+      "binary": {
+        "samples": 160,
+        "precision": 0.97561,
+        "recall": 1.0,
+        "f1": 0.987654,
+        "violation_interception_rate": 1.0,
+        "normal_false_positive_rate": 0.025,
+        "confusion": {
+          "tp": 80,
+          "fp": 2,
+          "fn": 0,
+          "tn": 78
+        }
+      }
+    },
+    "output": {
+      "classification": {
+        "samples": 40,
+        "accuracy": 0.95,
+        "macro_f1": 0.949596,
+        "per_class": {
+          "normal": {
+            "precision": 0.95,
+            "recall": 0.95,
+            "f1": 0.95,
+            "support": 20
+          },
+          "sexual": {
+            "precision": 0.833333,
+            "recall": 1.0,
+            "f1": 0.909091,
+            "support": 5
+          },
+          "violence": {
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1": 0.888889,
+            "support": 5
+          },
+          "advertising": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 5
+          },
+          "sensitive_speech": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 5
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "sexual",
+            "violence",
+            "advertising",
+            "sensitive_speech"
+          ],
+          "rows_actual_columns_predicted": [
+            [
+              19,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              5,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              5,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      },
+      "binary": {
+        "samples": 40,
+        "precision": 1.0,
+        "recall": 0.95,
+        "f1": 0.974359,
+        "violation_interception_rate": 0.95,
+        "normal_false_positive_rate": 0.0,
+        "confusion": {
+          "tp": 19,
+          "fp": 0,
+          "fn": 1,
+          "tn": 20
+        }
+      }
+    }
+  },
+  "meets_competition_threshold": true,
+  "details": [
+    {
+      "id": "e2e-normal-001",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-002",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-003",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-004",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-005",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-006",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-007",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-008",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-009",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-010",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-011",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-012",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-013",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-014",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": [
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-015",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-016",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-017",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-018",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-019",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-020",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-021",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-022",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-023",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-024",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-025",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-026",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-027",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-028",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-029",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-030",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-031",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-032",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-033",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-034",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-035",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-036",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-037",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-038",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-039",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-040",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": [
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-041",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-042",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-043",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-044",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-045",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-046",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-047",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-048",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-049",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-050",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": [
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-051",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-052",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-053",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-054",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-055",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-056",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-057",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-058",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-059",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-060",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-061",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-062",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-063",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-064",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-065",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-066",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-067",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-068",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-069",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-070",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": [
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-071",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-072",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-073",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-074",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-075",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-076",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-077",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-078",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-079",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-080",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": [
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-081",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "sexual",
+      "risk_score": 20,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-082",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-083",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "sexual",
+      "risk_score": 20,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-normal-084",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "sexual",
+      "risk_score": 20,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-normal-085",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "sexual",
+      "risk_score": 20,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-normal-086",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "violence",
+      "risk_score": 14,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-normal-087",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-088",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "violence",
+      "risk_score": 20,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-089",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-090",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-091",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-092",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-093",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "mask",
+      "predicted_official_category": "advertising",
+      "risk_score": 67,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-normal-094",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "mask",
+      "predicted_official_category": "advertising",
+      "risk_score": 72,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-095",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": [
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-normal-096",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "pass",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 14,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-normal-097",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "pass",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 22,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-normal-098",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-099",
+      "label": "normal",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": []
+    },
+    {
+      "id": "e2e-normal-100",
+      "label": "normal",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": [
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-01-1",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-01-2",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-01-3",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-01-4",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-01-5",
+      "label": "sexual",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-02-1",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 84,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-02-2",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 84,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-02-3",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 84,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-02-4",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 84,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-02-5",
+      "label": "sexual",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 84,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-03-1",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-03-2",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-03-3",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-03-4",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-03-5",
+      "label": "sexual",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-04-1",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-04-2",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-04-3",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-04-4",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-04-5",
+      "label": "sexual",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 85,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-sexual-05-1",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-05-2",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-05-3",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-05-4",
+      "label": "sexual",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-sexual-05-5",
+      "label": "sexual",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "sexual",
+      "risk_score": 82,
+      "official_categories": [
+        "sexual"
+      ],
+      "evidence_sources": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "e2e-violence-01-1",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 96,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-violence-01-2",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 96,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-violence-01-3",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 96,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-violence-01-4",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 96,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-violence-01-5",
+      "label": "violence",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 96,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-violence-02-1",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 84,
+      "official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-violence-02-2",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 84,
+      "official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-violence-02-3",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 84,
+      "official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-violence-02-4",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 84,
+      "official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-violence-02-5",
+      "label": "violence",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "violence",
+      "risk_score": 84,
+      "official_categories": [
+        "violence",
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-violence-03-1",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 58,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-03-2",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 58,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-03-3",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 58,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-03-4",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 58,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-03-5",
+      "label": "violence",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 58,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-04-1",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 69,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-04-2",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 69,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-04-3",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 70,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-04-4",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 69,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-04-5",
+      "label": "violence",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 60,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-05-1",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 58,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-05-2",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 58,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-05-3",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 56,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-05-4",
+      "label": "violence",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "violence",
+      "risk_score": 58,
+      "official_categories": [
+        "violence"
+      ],
+      "evidence_sources": [
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-violence-05-5",
+      "label": "violence",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "pass",
+      "predicted_official_category": "normal",
+      "risk_score": 0,
+      "official_categories": [],
+      "evidence_sources": [
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-advertising-01-1",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 85,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-01-2",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 85,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-01-3",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 85,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-01-4",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 85,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-01-5",
+      "label": "advertising",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 85,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-02-1",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 82,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-02-2",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 82,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-02-3",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 79,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-advertising-02-4",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 82,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-02-5",
+      "label": "advertising",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 82,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-03-1",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 79,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-03-2",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 79,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-03-3",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 78,
+      "official_categories": [
+        "advertising",
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-03-4",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 79,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-03-5",
+      "label": "advertising",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 79,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-advertising-04-1",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 82,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-04-2",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 79,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-advertising-04-3",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 79,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-advertising-04-4",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 82,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-04-5",
+      "label": "advertising",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "advertising",
+      "risk_score": 79,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes"
+      ]
+    },
+    {
+      "id": "e2e-advertising-05-1",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "mask",
+      "predicted_official_category": "advertising",
+      "risk_score": 68,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-05-2",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "mask",
+      "predicted_official_category": "advertising",
+      "risk_score": 65,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-05-3",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "mask",
+      "predicted_official_category": "advertising",
+      "risk_score": 65,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-05-4",
+      "label": "advertising",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "mask",
+      "predicted_official_category": "advertising",
+      "risk_score": 67,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-advertising-05-5",
+      "label": "advertising",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "mask",
+      "predicted_official_category": "advertising",
+      "risk_score": 63,
+      "official_categories": [
+        "advertising"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-01-1",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 95,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-01-2",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 95,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-01-3",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 95,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-01-4",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 95,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-01-5",
+      "label": "sensitive_speech",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 95,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "keyword",
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-02-1",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 84,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-02-2",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 84,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-02-3",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 84,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-02-4",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 84,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-02-5",
+      "label": "sensitive_speech",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "block",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 84,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "regex"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-03-1",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-03-2",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-03-3",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-03-4",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-03-5",
+      "label": "sensitive_speech",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-04-1",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-04-2",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-04-3",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-04-4",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-04-5",
+      "label": "sensitive_speech",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 76,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-05-1",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "standard",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 74,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-05-2",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "colloquial",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 75,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-05-3",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "typo_obfuscated",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 75,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-05-4",
+      "label": "sensitive_speech",
+      "direction": "input",
+      "variant_type": "mixed_language",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 75,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    },
+    {
+      "id": "e2e-sensitive_speech-05-5",
+      "label": "sensitive_speech",
+      "direction": "output",
+      "variant_type": "contextual",
+      "action": "review",
+      "predicted_official_category": "sensitive_speech",
+      "risk_score": 75,
+      "official_categories": [
+        "sensitive_speech"
+      ],
+      "evidence_sources": [
+        "naive_bayes",
+        "pretrained_onnx"
+      ]
+    }
+  ]
+}

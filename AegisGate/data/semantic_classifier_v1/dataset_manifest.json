@@ -1,0 +1,61 @@
+{
+  "dataset_id": "aegisgate-official-four-v1",
+  "seed": 20260817,
+  "labels": [
+    "normal",
+    "sexual",
+    "violence",
+    "advertising",
+    "sensitive_speech"
+  ],
+  "split_counts_per_label": {
+    "train": 30,
+    "validation": 5,
+    "test": 5
+  },
+  "source": "AegisGate 项目组自建合成短文本 v1",
+  "license": "CC-BY-4.0",
+  "privacy": "项目自建合成短文本；禁止真实个人信息；生成时执行手机号、邮箱和身份证格式检查。",
+  "deduplication": {
+    "fingerprint": "NFKC + lowercase + alphanumeric/CJK",
+    "near_duplicate": "character trigram Jaccard >= 0.9 rejected",
+    "exact_duplicates": 0,
+    "near_duplicates_at_0_9": 0,
+    "pii_pattern_hits": 0
+  },
+  "files": {
+    "train.jsonl": {
+      "rows": 150,
+      "sha256": "640f979750144b3de6f863990cf88b965a56bff6eeb86ecb317a615266c2af9a",
+      "labels": {
+        "normal": 30,
+        "sexual": 30,
+        "violence": 30,
+        "advertising": 30,
+        "sensitive_speech": 30
+      }
+    },
+    "validation.jsonl": {
+      "rows": 25,
+      "sha256": "5e0aa2d88c8ccd2c69b96f525ce4fba6e850d54e0497807eab3e49efa2874f88",
+      "labels": {
+        "normal": 5,
+        "sexual": 5,
+        "violence": 5,
+        "advertising": 5,
+        "sensitive_speech": 5
+      }
+    },
+    "test.jsonl": {
+      "rows": 25,
+      "sha256": "c6333b2649c015081ac60a54eeab6855c4ad42fe260d5ad331e84a2a3e457871",
+      "labels": {
+        "normal": 5,
+        "sexual": 5,
+        "violence": 5,
+        "advertising": 5,
+        "sensitive_speech": 5
+      }
+    }
+  }
+}

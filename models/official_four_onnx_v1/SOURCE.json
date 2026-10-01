@@ -1,0 +1,14 @@
+{
+  "base_model": "hfl/rbt3",
+  "source_url": "https://huggingface.co/hfl/rbt3",
+  "revision": "0aa0527ff4170f29e1dfd3eb6ef60dc67e1bf75c",
+  "upstream_weight_file": "pytorch_model.bin",
+  "upstream_weight_bytes": 156380647,
+  "upstream_weight_sha256": "3e04f7477f55dffce2a2fbc4d0ba35068415162a9e92e3d5cc74a49781ba4eb0",
+  "upstream_license": "Apache-2.0",
+  "license_evidence": [
+    "Hugging Face model card metadata: license=apache-2.0",
+    "https://github.com/ymcui/Chinese-BERT-wwm/blob/master/LICENSE"
+  ],
+  "redistribution": "Fine-tuned derivative; license, attribution, source revision and modification notice are included."
+}

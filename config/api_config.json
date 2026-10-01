@@ -1,0 +1,7 @@
+{
+  "provider": "mock",
+  "api_url": "https://api.deepseek.com/chat/completions",
+  "model_name": "deepseek-chat",
+  "timeout_seconds": 25,
+  "api_key_env": "DEEPSEEK_API_KEY"
+}

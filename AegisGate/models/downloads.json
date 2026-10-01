@@ -1,0 +1,18 @@
+{
+  "release": "models-v1",
+  "repository": "MengC999/AegisGate",
+  "models": {
+    "v1": {
+      "asset": "official_four_onnx_v1.onnx",
+      "path": "models/official_four_onnx_v1/model.onnx",
+      "bytes": 154006588,
+      "sha256": "e02cf33cc88310fddc28a705a33ce4e7d1960170464a6d7007ca817a4c9f2995"
+    },
+    "v2": {
+      "asset": "official_four_onnx_v2.onnx",
+      "path": "models/official_four_onnx_v2/model.onnx",
+      "bytes": 154006588,
+      "sha256": "023e11ba9bef71b5e285e0f720bef4ea72aeeaf5e136f935abdeadf5cfc86710"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "provider": "openai_compatible",
+  "api_url": "http://127.0.0.1:11434/v1/chat/completions",
+  "model_name": "aegis-deepseek-v2:16b",
+  "timeout_seconds": 120,
+  "api_key_env": "DEEPSEEK_API_KEY"
+}

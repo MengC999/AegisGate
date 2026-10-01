@@ -1,0 +1,59 @@
+{
+  "policy_id": "aegisgate-cn-conversation-2026",
+  "version": "3.1.0",
+  "locale": "zh-CN",
+  "limits": {
+    "max_text_chars": 8000,
+    "max_history_turns": 12,
+    "max_request_bytes": 24576,
+    "max_batch_records": 500
+  },
+  "thresholds": {
+    "pass": 0.35,
+    "mask": 0.58,
+    "block": 0.82
+  },
+  "category_names": {
+    "sexual": "色情低俗",
+    "violence": "暴力伤害",
+    "self_harm": "自伤自杀",
+    "illegal": "违法风险",
+    "hate": "仇恨歧视",
+    "fraud": "诈骗与导流",
+    "pii": "个人隐私",
+    "prompt_injection": "提示注入",
+    "misinformation": "有害虚假信息",
+    "sensitive_speech": "敏感话术"
+  },
+  "maskable_categories": ["pii", "fraud"],
+  "context_reducers": {
+    "safety_discussion": 0.24,
+    "help_seeking": 0.42,
+    "quoted_content": 0.7,
+    "unsafe_safety_context": 1.0
+  },
+  "safe_replies": {
+    "block": "抱歉，该内容可能违反安全规范，系统未将其转交至模型。请调整为合法、健康且不伤害他人的表述。",
+    "review": "该请求需要进一步安全核验，暂未转交至模型。请补充合法、正当的使用目的或改写问题。",
+    "support": "我很在意你的安全。如果你正处于立即危险中，请立刻联系当地急救或警方（中国大陆可拨打 120/110），并请身边可信任的人陪伴你。请先远离可能伤害自己的物品；你可以告诉我你现在是否安全、身边是否有人。",
+    "output_block": "模型输出未通过安全校验，已由系统替换为合规回复。"
+  },
+  "regex_rules": [
+    {"id": "pii_phone_cn", "category": "pii", "score": 0.66, "pattern": "(?<!\\d)1[3-9]\\d{9}(?!\\d)", "description": "识别到中国大陆手机号"},
+    {"id": "pii_id_cn", "category": "pii", "score": 0.82, "pattern": "(?<!\\d)\\d{17}[0-9Xx](?![0-9Xx])", "description": "识别到身份证件号码"},
+    {"id": "pii_email", "category": "pii", "score": 0.6, "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}", "description": "识别到电子邮箱"},
+    {"id": "fraud_contact", "category": "fraud", "score": 0.67, "pattern": "(?:加|联系|私信).{0,8}(?:微信|微.?信|vx|qq|群)", "description": "识别到站外导流话术"},
+    {"id": "fraud_link", "category": "fraud", "score": 0.6, "pattern": "(?:https?://|www\\.)[^\\s<>]+", "description": "识别到外链"},
+    {"id": "prompt_override", "category": "prompt_injection", "score": 0.92, "pattern": "(?:忽略|无视|跳过).{0,12}(?:指令|规则|限制|上文)", "description": "识别到指令覆盖企图"},
+    {"id": "prompt_system", "category": "prompt_injection", "score": 0.88, "pattern": "(?:泄露|输出|复述|显示).{0,12}(?:系统提示词|system prompt|隐藏指令|开发者消息)", "description": "识别到系统提示词提取企图"},
+    {"id": "prompt_override_en", "category": "prompt_injection", "score": 0.92, "pattern": "ignore.{0,16}(?:previous|all).{0,12}instructions", "description": "识别到英文指令覆盖企图"},
+    {"id": "prompt_system_en", "category": "prompt_injection", "score": 0.9, "pattern": "(?:reveal|print|show).{0,16}system prompt", "description": "识别到英文系统提示提取企图"},
+    {"id": "prompt_system_obfuscated", "category": "prompt_injection", "score": 0.91, "pattern": "(?:泄露|输出|复述|显示).{0,16}(?:系统[\\s\\W_]*提示[\\s\\W_]*词|隐藏[\\s\\W_]*指令)", "description": "识别到混淆的系统提示提取企图"},
+    {"id": "violence_instruction", "category": "violence", "score": 0.94, "pattern": "(?:如何|怎么|教我).{0,10}(?:杀人|砍人|伤害|爆炸|纵火|投毒)", "description": "识别到暴力伤害实施请求"},
+    {"id": "violence_threat", "category": "violence", "score": 0.9, "pattern": "(?:弄死|打死|砍死|炸掉).{0,20}(?:他|她|他们|学校|公司|你)?", "description": "识别到暴力威胁"},
+    {"id": "self_harm_instruction", "category": "self_harm", "score": 0.88, "pattern": "(?:如何|怎么|最快|无痛).{0,10}(?:自杀|轻生|结束生命|伤害自己)", "description": "识别到自伤实施请求"},
+    {"id": "self_harm_direct_request", "category": "self_harm", "score": 0.9, "pattern": "(?:帮我|教我|给我|提供).{0,8}(?:自杀|轻生|自残|结束生命|伤害自己)", "description": "识别到直接自伤实施请求"},
+    {"id": "illegal_evasion", "category": "illegal", "score": 0.84, "pattern": "(?:逃避|躲避|绕过).{0,12}(?:监管|审查|追踪|执法)", "description": "识别到规避监管请求"},
+    {"id": "illegal_instruction", "category": "illegal", "score": 0.92, "pattern": "(?:如何|怎么|教我).{0,12}(?:入侵|制毒|洗钱|伪造证件|盗取账号)", "description": "识别到违法行为实施请求"}
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "dataset_id": "aegisgate-e2e-holdout-v1",
+  "dataset_version": "1.0.0",
+  "evaluation_use": "frozen_final_holdout",
+  "license": "CC-BY-4.0",
+  "source": "AegisGate 项目组自建合成文本 e2e_holdout_v1",
+  "generation_method": "项目组自建合成模板与人工安全改写；不含真实个人敏感信息",
+  "splits": {
+    "test": {
+      "samples": 200,
+      "label_counts": {
+        "normal": 100,
+        "sexual": 25,
+        "violence": 25,
+        "advertising": 25,
+        "sensitive_speech": 25
+      }
+    }
+  },
+  "files": {
+    "test.jsonl": {
+      "sha256": "51c923b2394b814295031020219b33d7b72d55a0f4c68fe9ca18951aefa4d4f0",
+      "samples": 200
+    }
+  },
+  "tuning_notice": "本文件只用于最终评测；阈值、规则和融合策略不得根据本文件调参。"
+}

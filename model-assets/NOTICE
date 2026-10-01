@@ -1,0 +1,9 @@
+AegisGate ONNX model distribution
+Copyright 2026 M4wwtr4c3 and contributors.
+
+Fine-tuned derivatives of HFL rbt3, revision
+0aa0527ff4170f29e1dfd3eb6ef60dc67e1bf75c.
+Upstream: https://huggingface.co/hfl/rbt3
+License: Apache-2.0.
+See models-metadata.zip for each model card, source attribution,
+modification record, vocabulary, labels and original checksums.
