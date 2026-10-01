@@ -27,7 +27,7 @@ jobs:
       - run: python -m unittest discover -s tests -p "test_release_archive.py"
       - run: python scripts/build_delivery_package.py --output ../AegisGate-source.zip
       - run: python scripts/verify_release.py ../AegisGate-source.zip
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: source-${{ matrix.os }}
           path: ../AegisGate-source.zip
